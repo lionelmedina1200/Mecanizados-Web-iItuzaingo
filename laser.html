@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Corte láser de precisión 0,02mm — 6.000W para aceros y metales no ferrosos. Mecanizado Ituzaingó S.A." />
+  <title>Corte Láser — Mecanizado Ituzaingó S.A.</title>
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow:wght@700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow:wght@700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/servicios.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    .ventajas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 32px; }
+    .ventaja-cell { background: var(--surface); padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; transition: background 0.2s; }
+    .ventaja-cell:hover { background: var(--surface-hover); }
+    .ventaja-icon { font-size: 24px; }
+    .ventaja-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+    .ventaja-desc  { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    .espesores-table { width: 100%; border-collapse: collapse; margin-top: 28px; border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+    .espesores-table th, .espesores-table td { text-align: left; padding: 13px 18px; font-size: 13px; border-bottom: 1px solid var(--border); }
+    .espesores-table thead th { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; background: var(--bg-elevated); }
+    .espesores-table tbody tr { background: var(--surface); transition: background 0.18s; }
+    .espesores-table tbody tr:last-child td { border-bottom: none; }
+    .espesores-table tbody tr:hover { background: var(--surface-hover); }
+    .espesores-table td:first-child { font-weight: 600; color: var(--text-primary); }
+    .espesores-table td:not(:first-child) { color: var(--text-secondary); }
+
+    .page-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    @media (max-width: 700px) { .page-two-col { grid-template-columns: 1fr; gap: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">⚙</div>
+        <div>
+          <span class="nav-logo-name">Mecanizado Ituzaingó</span>
+          <span class="nav-logo-since">S.A. — Desde 1977</span>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mecanizado.html">Mecanizado</a></li>
+        <li><a href="estampado.html">Estampado</a></li>
+        <li><a href="laser.html" class="active">Corte Láser</a></li>
+        <li><a href="calidad.html">Calidad</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn-accent nav-cta">Solicitá una cotización</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="eyebrow">Servicio</span>
+      <h1 class="section-h2" style="font-size: clamp(30px, 4vw, 48px); margin-bottom: 16px;">Corte Láser</h1>
+      <p class="section-lead">
+        Equipos de fibra óptica de 6.000 W con precisión de corte de 0,02 mm.
+        Acero al carbono, inoxidable, aluminio y metales no ferrosos en una amplia variedad de espesores.
+      </p>
+    </div>
+  </header>
+
+  <section class="s-servicios" style="padding: 80px 2rem;">
+    <div class="container">
+
+      <!-- Ventajas -->
+      <span class="eyebrow">Por qué láser</span>
+      <h2 class="section-h2" style="font-size: 28px;">Precisión sin contacto</h2>
+      <p class="section-lead">El corte láser elimina la deformación mecánica, produce bordes limpios y permite geometrías que serían imposibles con herramienta convencional.</p>
+      <div class="ventajas-grid">
+        <div class="ventaja-cell reveal">
+          <span class="ventaja-icon">🎯</span>
+          <p class="ventaja-title">Precisión de 0,02 mm</p>
+          <p class="ventaja-desc">Tolerancias de corte que no requieren mecanizado posterior en la mayoría de las aplicaciones.</p>
+        </div>
+        <div class="ventaja-cell reveal">
+          <span class="ventaja-icon">⚡</span>
+          <p class="ventaja-title">6.000 W de potencia</p>
+          <p class="ventaja-desc">Corte rápido en espesores gruesos sin sacrificar calidad de borde ni precisión dimensional.</p>
+        </div>
+        <div class="ventaja-cell reveal">
+          <span class="ventaja-icon">📐</span>
+          <p class="ventaja-title">Geometrías complejas</p>
+          <p class="ventaja-desc">Contornos, radios, perforaciones y formas interiores en un solo pasaje sin reutillaje.</p>
+        </div>
+        <div class="ventaja-cell reveal">
+          <span class="ventaja-icon">🔁</span>
+          <p class="ventaja-title">Repetibilidad garantizada</p>
+          <p class="ventaja-desc">Cada pieza de la serie es idéntica a la anterior. Control numérico y trazabilidad de archivo.</p>
+        </div>
+      </div>
+
+      <!-- Materiales y espesores -->
+      <div class="page-two-col" style="margin-top: 72px;">
+        <div class="reveal">
+          <span class="eyebrow">Materiales</span>
+          <h2 class="section-h2" style="font-size: 28px;">Materiales y espesores</h2>
+          <p class="section-lead" style="margin-bottom: 0;">Capacidad de corte en los materiales más utilizados en la industria metalmecánica argentina.</p>
+          <table class="espesores-table">
+            <thead>
+              <tr><th>Material</th><th>Espesor máx.</th><th>Acabado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Acero al carbono</td><td>25 mm</td><td>Borde limpio</td></tr>
+              <tr><td>Acero inoxidable</td><td>15 mm</td><td>Sin oxidación</td></tr>
+              <tr><td>Aluminio</td><td>12 mm</td><td>Borde pulido</td></tr>
+              <tr><td>Latón</td><td>8 mm</td><td>Borde liso</td></tr>
+              <tr><td>Cobre</td><td>6 mm</td><td>Sin rebaba</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="reveal">
+          <span class="eyebrow">Especificaciones técnicas</span>
+          <h2 class="section-h2" style="font-size: 28px;">Parámetros del equipo</h2>
+          <div class="detalle-grid" style="grid-template-columns: 1fr;">
+            <div class="detalle-cell">
+              <h3>Tecnología</h3>
+              <p>Láser de fibra óptica — mayor eficiencia energética y vida útil que CO₂ en metales.</p>
+            </div>
+            <div class="detalle-cell">
+              <h3>Potencia de corte</h3>
+              <p>6.000 W continuos. Permite cortar aceros gruesos a alta velocidad sin perder precisión.</p>
+            </div>
+            <div class="detalle-cell">
+              <h3>Precisión de posicionamiento</h3>
+              <p>± 0,02 mm. Recomendado para piezas que requieren ajuste fino o encastres.</p>
+            </div>
+            <div class="detalle-cell">
+              <h3>Área de trabajo</h3>
+              <p>Formato estándar de chapa industrial. Consultar dimensiones máximas para su proyecto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="iso-bar">
+    <div class="iso-bar-left">
+      <div class="iso-bar-icon">✓</div>
+      <div>
+        <p class="iso-bar-title">Archivo digital trazable por orden de producción</p>
+        <p class="iso-bar-sub">Cada corte registrado. Trazabilidad completa ISO 9001:2015 en cada lote.</p>
+      </div>
+    </div>
+    <a href="calidad.html" class="iso-bar-link">Ver sistema de calidad →</a>
+  </div>
+
+  <section class="s-cta">
+    <div class="s-cta-inner reveal">
+      <span class="eyebrow" style="justify-content:center;">Siguiente paso</span>
+      <h2 class="section-h2">¿Tenés un DXF o un plano para cortar?</h2>
+      <p class="section-lead">Mandanos el archivo y el material, y te cotizamos en el día.</p>
+      <div class="s-cta-actions">
+        <a href="contacto.html" class="btn btn-accent">Solicitar cotización</a>
+        <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="btn btn-ghost">💬 WhatsApp directo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="nav-logo-mark">⚙</div><div><span class="nav-logo-name">Mecanizado Ituzaingó</span><span class="nav-logo-since">S.A. — Desde 1977</span></div></div><p class="footer-tagline">Fabricación de piezas de precisión mediante CNC, estampado y corte láser para la industria argentina.</p><span class="footer-iso">✓ ISO 9001:2015</span></div>
+      <nav class="footer-col"><p class="footer-col-title">Servicios</p><a href="mecanizado.html">Mecanizado CNC</a><a href="estampado.html">Estampado</a><a href="laser.html">Corte Láser</a><a href="calidad.html">Control de Calidad</a></nav>
+      <nav class="footer-col"><p class="footer-col-title">Empresa</p><a href="index.html">Inicio</a><a href="calidad.html">Certificaciones</a><a href="contacto.html">Contacto</a></nav>
+      <div class="footer-col"><p class="footer-col-title">Dónde encontrarnos</p><div class="footer-contact-item"><span class="footer-contact-label">Dirección</span><span class="footer-contact-val">Cerrito 1081, Ituzaingó, Buenos Aires</span></div><div class="footer-contact-item"><span class="footer-contact-label">Teléfono</span><a href="tel:+541146211721" class="footer-contact-val">+54 11-4621-1721</a></div><div class="footer-contact-item"><span class="footer-contact-label">Email</span><a href="mailto:info@mecanizado.com.ar" class="footer-contact-val">info@mecanizado.com.ar</a></div><div class="footer-contact-item"><span class="footer-contact-label">Horario</span><span class="footer-contact-val">Lun–Vie · 8:00 a 17:00</span></div></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">© 2025 Mecanizado Ituzaingó S.A. Todos los derechos reservados.</p><nav class="footer-legal"><a href="#">Política de privacidad</a><a href="#">Términos de uso</a></nav></div></div>
+  </footer>
+
+  <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">💬</a>
+  <script src="js/main.js"></script>
+</body>
+</html>

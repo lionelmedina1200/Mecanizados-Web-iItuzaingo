@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacto y cotización — Mecanizado Ituzaingó S.A. Respondemos en menos de 24hs hábiles." />
+  <title>Contacto — Mecanizado Ituzaingó S.A.</title>
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow:wght@700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow:wght@700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">⚙</div>
+        <div>
+          <span class="nav-logo-name">Mecanizado Ituzaingó</span>
+          <span class="nav-logo-since">S.A. — Desde 1977</span>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mecanizado.html">Mecanizado</a></li>
+        <li><a href="estampado.html">Estampado</a></li>
+        <li><a href="laser.html">Corte Láser</a></li>
+        <li><a href="calidad.html">Calidad</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn-accent nav-cta active">Cotizá ahora</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="eyebrow">Contacto</span>
+      <h1 class="section-h2" style="font-size: clamp(30px, 4vw, 48px); margin-bottom: 16px;">Solicitá una cotización</h1>
+      <p class="section-lead">
+        Completá el formulario con los datos de tu pieza o proyecto.
+        Nuestro equipo técnico te responde en menos de 24 horas hábiles.
+      </p>
+    </div>
+  </header>
+
+  <section class="s-contacto">
+    <div class="container">
+      <div class="s-contacto-grid">
+
+        <!-- FORMULARIO -->
+        <div>
+          <span class="eyebrow">Formulario de consulta</span>
+          <h2 class="section-h2" style="font-size: 26px; margin-bottom: 28px;">Contanos qué necesitás</h2>
+
+          <form class="form-wrap" id="contactoForm" novalidate>
+
+            <div class="form-row-2">
+              <div class="field">
+                <label for="nombre">Nombre y apellido *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Juan García" autocomplete="name" required />
+                <span class="field-error" id="err-nombre" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Tu empresa S.A." autocomplete="organization" />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="field">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="juan@empresa.com" autocomplete="email" required />
+                <span class="field-error" id="err-email" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+54 11 0000-0000" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio">
+                <option value="" disabled selected>Seleccioná un servicio</option>
+                <option value="mecanizado-cnc">Mecanizado CNC</option>
+                <option value="estampado">Estampado</option>
+                <option value="corte-laser">Corte Láser</option>
+                <option value="multiple">Más de un servicio</option>
+                <option value="consulta">Consulta general</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Descripción del proyecto *</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Describí la pieza o el proyecto: material, dimensiones aproximadas, cantidad de piezas, tolerancias requeridas y cualquier otro detalle relevante. Cuanto más detalle nos des, mejor podremos cotizarte."
+                required
+              ></textarea>
+              <span class="field-error" id="err-mensaje" role="alert"></span>
+            </div>
+
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn btn-accent btn-full">Enviar consulta →</button>
+              <p class="form-legal">* Campos obligatorios. Respondemos en menos de 24hs hábiles en días de semana. Tu información es confidencial y no será compartida con terceros.</p>
+            </div>
+
+            <div class="form-success" id="formSuccess" role="status">
+              ✓ Consulta recibida. Te contactamos a la brevedad.
+            </div>
+
+          </form>
+        </div>
+
+        <!-- PANEL LATERAL -->
+        <aside class="contact-panel">
+          <div class="contact-box">
+            <div class="contact-box-head"><p>Información de contacto</p></div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <p class="contact-item-label">Dirección</p>
+                <span class="contact-item-value">Cerrito 1081</span>
+                <p class="contact-item-sub">Ituzaingó, Buenos Aires, Argentina</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <p class="contact-item-label">Teléfono</p>
+                <a href="tel:+541146211721" class="contact-item-value">+54 11-4621-1721</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">📠</div>
+              <div>
+                <p class="contact-item-label">Fax</p>
+                <span class="contact-item-value">+54 11-4621-1785</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">✉</div>
+              <div>
+                <p class="contact-item-label">Email</p>
+                <a href="mailto:info@mecanizado.com.ar" class="contact-item-value">info@mecanizado.com.ar</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">🕐</div>
+              <div>
+                <p class="contact-item-label">Horario de atención</p>
+                <span class="contact-item-value">Lunes a viernes</span>
+                <p class="contact-item-sub">8:00 a 17:00hs</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="btn-wa">
+            💬 Escribinos por WhatsApp
+          </a>
+
+          <!-- Destacado ISO -->
+          <div class="contact-box" style="margin-top: 0;">
+            <div class="contact-box-head"><p>Calidad certificada</p></div>
+            <div style="padding: 20px 22px;">
+              <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">
+                Operamos bajo norma <strong style="color: var(--text-primary);">ISO 9001:2015</strong> con trazabilidad
+                completa de materias primas y proceso. Emitimos documentación técnica PPAP a pedido.
+              </p>
+              <a href="calidad.html" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: var(--accent); margin-top: 14px;">
+                Ver sistema de calidad →
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="nav-logo-mark">⚙</div><div><span class="nav-logo-name">Mecanizado Ituzaingó</span><span class="nav-logo-since">S.A. — Desde 1977</span></div></div><p class="footer-tagline">Fabricación de piezas de precisión mediante CNC, estampado y corte láser para la industria argentina.</p><span class="footer-iso">✓ ISO 9001:2015</span></div>
+      <nav class="footer-col"><p class="footer-col-title">Servicios</p><a href="mecanizado.html">Mecanizado CNC</a><a href="estampado.html">Estampado</a><a href="laser.html">Corte Láser</a><a href="calidad.html">Control de Calidad</a></nav>
+      <nav class="footer-col"><p class="footer-col-title">Empresa</p><a href="index.html">Inicio</a><a href="calidad.html">Certificaciones</a><a href="contacto.html">Contacto</a></nav>
+      <div class="footer-col"><p class="footer-col-title">Dónde encontrarnos</p><div class="footer-contact-item"><span class="footer-contact-label">Dirección</span><span class="footer-contact-val">Cerrito 1081, Ituzaingó, Buenos Aires</span></div><div class="footer-contact-item"><span class="footer-contact-label">Teléfono</span><a href="tel:+541146211721" class="footer-contact-val">+54 11-4621-1721</a></div><div class="footer-contact-item"><span class="footer-contact-label">Email</span><a href="mailto:info@mecanizado.com.ar" class="footer-contact-val">info@mecanizado.com.ar</a></div><div class="footer-contact-item"><span class="footer-contact-label">Horario</span><span class="footer-contact-val">Lun–Vie · 8:00 a 17:00</span></div></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">© 2025 Mecanizado Ituzaingó S.A. Todos los derechos reservados.</p><nav class="footer-legal"><a href="#">Política de privacidad</a><a href="#">Términos de uso</a></nav></div></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/formulario.js"></script>
+</body>
+</html>
