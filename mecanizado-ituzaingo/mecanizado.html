@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mecanizado CNC — Tornos y centros con 4° eje. Piezas desde 1mm hasta 800mm. Mecanizado Ituzaingó S.A." />
+  <title>Mecanizado CNC — Mecanizado Ituzaingó S.A.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/servicios.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <style>
+    .inner-section { padding:48px var(--px); }
+    .spec-table { width:100%; border-collapse:collapse; border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; margin-top:24px; }
+    .spec-table th,.spec-table td { text-align:left; padding:12px 16px; font-size:13px; border-bottom:1px solid var(--border); }
+    .spec-table thead th { font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; background:var(--bg-elevated); }
+    .spec-table tbody tr { background:var(--surface); }
+    .spec-table tbody tr:last-child td { border-bottom:none; }
+    .spec-table td:first-child { font-weight:600; color:var(--text-primary); }
+    .spec-table td:not(:first-child) { color:var(--text-secondary); }
+    .mat-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .mat-tag { background:var(--surface); border:1px solid var(--border); border-radius:100px; padding:7px 14px; font-size:13px; color:var(--text-secondary); }
+    @media(min-width:640px){ .inner-section{ padding:64px var(--px); } }
+    @media(min-width:1024px){ .inner-section{ padding:80px 2rem; } .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark"><span class="icon icon-gear icon-white icon-sm"></span></div>
+        <div><span class="nav-logo-name">Mecanizado Ituzaingó</span><span class="nav-logo-since">S.A. — Desde 1977</span></div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mecanizado.html" class="active">Mecanizado</a></li>
+        <li><a href="estampado.html">Estampado</a></li>
+        <li><a href="laser.html">Corte Láser</a></li>
+        <li><a href="calidad.html">Calidad</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn-accent nav-cta">Cotizá ahora</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="eyebrow">Servicio</span>
+      <h1 class="section-h2">Mecanizado CNC</h1>
+      <p class="section-lead">Tornos y centros de mecanizado con 4° eje. Trabajamos acero, aluminio, bronce y plásticos de ingeniería con tolerancias que no perdonan errores.</p>
+    </div>
+  </header>
+
+  <div class="inner-section" style="background:var(--bg);">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="eyebrow">Equipamiento</span>
+          <h2 class="section-h2" style="font-size:22px;">Tornos y centros de mecanizado</h2>
+          <p class="section-lead" style="margin-bottom:24px;">Tenemos tornos CNC horizontales y verticales, y centros de mecanizado de 3° y 4° eje con interpolación milesimal. El doble palet nos permite cargar y descargar sin parar la máquina, lo que baja mucho el tiempo muerto en series largas.</p>
+          <div class="detalle-grid">
+            <div class="detalle-cell reveal"><h3>Torno horizontal</h3><p>Diámetros de 1 a 500 mm. El más usado para piezas de revolución en series medianas y largas.</p></div>
+            <div class="detalle-cell reveal"><h3>Torno vertical</h3><p>Para piezas de gran diámetro, hasta 800 mm. Bridas, poleas, coronas y cosas que no entran en horizontal.</p></div>
+            <div class="detalle-cell reveal"><h3>Centro de mecanizado</h3><p>4° eje de interpolación milesimal. Fresado, taladrado y roscado en un solo amarre, sin reubicar la pieza.</p></div>
+            <div class="detalle-cell reveal"><h3>Doble palet</h3><p>Mientras la máquina trabaja una pieza, el operario carga la siguiente. Más producción, menos tiempos muertos.</p></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Especificaciones</span>
+          <h2 class="section-h2" style="font-size:22px;">Datos técnicos</h2>
+          <table class="spec-table">
+            <thead><tr><th>Parámetro</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Diámetro mín.</td><td>1 mm</td></tr>
+              <tr><td>Diámetro máx.</td><td>800 mm</td></tr>
+              <tr><td>Ejes disponibles</td><td>3° y 4° eje</td></tr>
+              <tr><td>Interpolación</td><td>Milesimal</td></tr>
+              <tr><td>Sistema de pallets</td><td>Doble palet</td></tr>
+              <tr><td>Tolerancias típicas</td><td>&plusmn; 0,005 mm</td></tr>
+              <tr><td>Certificación</td><td>ISO 9001:2015</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-section" style="background:var(--surface); border-top:1px solid var(--border);">
+    <div class="container reveal">
+      <span class="eyebrow">Materiales</span>
+      <h2 class="section-h2" style="font-size:22px;">Con qué materiales trabajamos</h2>
+      <p class="section-lead">Si no ves el material que necesitás, consultanos igual. La lista no es todo lo que podemos hacer.</p>
+      <div class="mat-wrap">
+        <span class="mat-tag">Acero al carbono</span>
+        <span class="mat-tag">Acero inoxidable</span>
+        <span class="mat-tag">Acero templado</span>
+        <span class="mat-tag">Aluminio</span>
+        <span class="mat-tag">Bronce</span>
+        <span class="mat-tag">Latón</span>
+        <span class="mat-tag">Cobre</span>
+        <span class="mat-tag">Nylon</span>
+        <span class="mat-tag">Teflón (PTFE)</span>
+        <span class="mat-tag">Acetál (POM)</span>
+        <span class="mat-tag">Polietileno HD</span>
+        <span class="mat-tag">Fundición gris</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="iso-bar">
+    <div class="iso-bar-left">
+      <div class="iso-bar-icon"><span class="icon icon-check icon-white icon-md"></span></div>
+      <div><p class="iso-bar-title">Trazabilidad completa en cada orden</p><p class="iso-bar-sub">ISO 9001:2015 · Control dimensional con MMC y proyector digital</p></div>
+    </div>
+    <a href="calidad.html" class="iso-bar-link">Ver sistema de calidad &rarr;</a>
+  </div>
+
+  <section class="s-cta">
+    <div class="container"><div class="s-cta-inner reveal">
+      <span class="eyebrow" style="justify-content:center;">Siguiente paso</span>
+      <h2 class="section-h2">¿Tenés una pieza para mecanizar?</h2>
+      <p class="section-lead">Mandanos el plano o las medidas y te respondemos con tiempos y precio. Sin compromiso.</p>
+      <div class="s-cta-actions">
+        <a href="contacto.html" class="btn btn-accent">Pedir cotización</a>
+        <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp directo</a>
+      </div>
+    </div></div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo"><div class="nav-logo-mark"><span class="icon icon-gear icon-white icon-sm"></span></div><div><span class="nav-logo-name">Mecanizado Ituzaingó</span><span class="nav-logo-since">S.A. — Desde 1977</span></div></div>
+        <p class="footer-tagline">Fabricación de piezas de precisión mediante CNC, estampado y corte láser para la industria argentina.</p>
+        <span class="footer-iso">ISO 9001:2015</span>
+      </div>
+      <div class="footer-cols">
+        <nav class="footer-col"><p class="footer-col-title">Servicios</p><a href="mecanizado.html">Mecanizado CNC</a><a href="estampado.html">Estampado</a><a href="laser.html">Corte Láser</a><a href="calidad.html">Calidad</a></nav>
+        <nav class="footer-col"><p class="footer-col-title">Empresa</p><a href="index.html">Inicio</a><a href="calidad.html">Certificaciones</a><a href="contacto.html">Contacto</a></nav>
+        <div class="footer-col"><p class="footer-col-title">Contacto</p>
+          <div class="footer-contact-item"><span class="footer-contact-label">Teléfono</span><a href="tel:+541146211721" class="footer-contact-val">+54 11-4621-1721</a></div>
+          <div class="footer-contact-item"><span class="footer-contact-label">Email</span><a href="mailto:info@mecanizado.com.ar" class="footer-contact-val">info@mecanizado.com.ar</a></div>
+          <div class="footer-contact-item"><span class="footer-contact-label">Horario</span><span class="footer-contact-val">Lun–Vie · 8:00 a 17:00</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2025 Mecanizado Ituzaingó S.A. Todos los derechos reservados.</p><nav class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></nav></div></div>
+  </footer>
+
+  <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp"><span class="icon icon-wa icon-white icon-lg"></span></a>
+  <script src="js/main.js"></script>
+</body>
+</html>
