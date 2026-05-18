@@ -149,3 +149,32 @@
   .detalle-grid { flex-direction: row; flex-wrap: wrap; }
   .detalle-cell { width: calc(50% - 0.5px); padding: 28px 24px; }
 }
+
+/* ── Badge ISO imagen ────────────────────────── */
+.iso-badge-img {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.iso-badge-img img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(232,93,26,0.2));
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.iso-badge-img img:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(232,93,26,0.4));
+}
+
+@media (min-width: 1024px) {
+  .iso-badge-img img {
+    width: 200px;
+    height: 200px;
+  }
+}
