@@ -30,12 +30,12 @@
 
 /* Contenedor del logo imagen */
 .nav-logo-img-wrap {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--r-md);
-  overflow: hidden;
+  width: 42px;
+  height: 42px;
+  border-radius: 0;
+  overflow: visible;
   flex-shrink: 0;
-  background: var(--surface);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,8 +156,8 @@
 /* ── Tablet 640px+ ───────────────────────────── */
 @media (min-width: 640px) {
   .navbar { height: 64px; }
-  .nav-logo-img-wrap { width: 38px; height: 38px; }
-  .nav-logo-fallback  { width: 38px; height: 38px; }
+  .nav-logo-img-wrap { width: 46px; height: 46px; }
+  .nav-logo-fallback  { width: 46px; height: 46px; }
   .nav-logo-name  { font-size: 14px; }
   .nav-menu { top: 64px; }
 }
@@ -202,7 +202,7 @@
   .nav-cta    { display: inline-flex; margin-left: 10px; }
   .nav-burger { display: none; }
 
-  .nav-logo-img-wrap { width: 40px; height: 40px; }
-  .nav-logo-fallback  { width: 40px; height: 40px; font-size: 17px; }
+  .nav-logo-img-wrap { width: 50px; height: 50px; }
+  .nav-logo-fallback  { width: 50px; height: 50px; font-size: 17px; }
   .nav-logo-name  { font-size: 14px; }
 }

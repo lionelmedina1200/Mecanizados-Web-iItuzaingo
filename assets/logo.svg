@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img">
+  <title>Mecanizado Ituzaingó S.A.</title>
+  <desc>Logo de Mecanizado Ituzaingó — engranaje industrial</desc>
+
+  <defs>
+    <style>
+      .gear-fill   { fill: #d0d0d0; }
+      .gear-stroke { fill: none; stroke: #d0d0d0; }
+      .gear-bg     { fill: #1a1a1a; }
+      .logo-text   {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        font-weight: 900;
+        fill: #d0d0d0;
+        letter-spacing: 0.18em;
+      }
+    </style>
+    <!-- Arcos para texto curvo -->
+    <path id="arcTop" d="M 71,88 A 31 31 0 0 1 129,88"/>
+    <path id="arcBot" d="M 76,117 A 31 31 0 0 0 124,117"/>
+  </defs>
+
+  <!-- ======================================
+       ENGRANAJE — 16 dientes
+       Centro: 100,100  rOuter=60 rInner=51 rBase=48
+  ======================================= -->
+
+  <!-- Dientes — polígono generado -->
+  <polygon class="gear-fill" points="
+    100,40.5 103.7,40.9 107.2,42.2 107.2,42.2
+    113.7,39.5 116.8,41.9 115.5,45.8
+    120.7,50.1 124.3,49.5 126.2,52.8 123.4,55.8
+    125.8,62.5 129.4,63.9 129.6,67.6 126.0,68.5
+    125.1,75.6 128.1,78.0 127.0,81.5 123.3,81.1
+    119.3,87.3 121.3,91.1 119.0,94.0 115.5,92.3
+    109.0,96.7 109.8,100.9 107.0,103.0 103.8,100.5
+    96.2,100.5 93.0,103.0 90.2,100.9 91.0,96.7
+    84.5,92.3 81.0,94.0 78.7,91.1 80.7,87.3
+    76.7,81.1 73.0,81.5 71.9,78.0 74.9,75.6
+    74.0,68.5 70.4,67.6 70.6,63.9 74.2,62
