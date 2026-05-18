@@ -242,39 +242,85 @@
   </section>
 
   
-  <!-- MAPA -->
+  <!-- MAPA LEAFLET -->
   <section class="s-mapa">
-    <div class="container">
-      <div class="mapa-header">
-        <div>
-          <span class="eyebrow">Ubicación</span>
-          <h2 class="section-h2" style="font-size:22px;">Cómo llegar</h2>
-          <p class="section-lead" style="margin-bottom:0;">Cerrito 1081, Ituzaingó, Buenos Aires.<br>A 500m de la estación Ituzaingó del Tren Sarmiento.</p>
+    <div class="mapa-wrap">
+
+      <!-- Panel izquierdo -->
+      <div class="mapa-panel">
+        <span class="mapa-eyebrow">
+          <span class="mapa-dot" aria-hidden="true"></span>
+          Ubicación
+        </span>
+        <h2 class="mapa-title">Mecanizado<br>Ituzaingó S.A.</h2>
+        <p class="mapa-addr">Cerrito 1081<br>Ituzaingó, Buenos Aires</p>
+
+        <div class="mapa-datos">
+          <div class="mapa-dato">
+            <span class="icon icon-clock icon-accent icon-sm" aria-hidden="true"></span>
+            <span>Lunes a viernes · 8:00 a 17:00</span>
+          </div>
+          <div class="mapa-dato">
+            <span class="icon icon-phone icon-accent icon-sm" aria-hidden="true"></span>
+            <a href="tel:+541146211721">+54 11-4621-1721</a>
+          </div>
+          <div class="mapa-dato">
+            <span class="icon icon-mail icon-accent icon-sm" aria-hidden="true"></span>
+            <a href="mailto:info@mecanizado.com.ar">info@mecanizado.com.ar</a>
+          </div>
         </div>
-        <a href="https://www.google.com/maps/place/Mecanizado+Ituzaingo+S.A./@-34.6297825,-58.6962641,17z" target="_blank" rel="noopener" class="btn btn-ghost mapa-btn">
+
+        <a href="https://www.google.com/maps/place/Mecanizado+Ituzaingo+S.A./@-34.6297825,-58.6962641,17z"
+           target="_blank" rel="noopener" class="btn btn-accent mapa-cta">
           Abrir en Google Maps &rarr;
         </a>
       </div>
-    </div>
-    <div class="mapa-embed-wrap">
-      <iframe
-        title="Ubicación de Mecanizado Ituzaingó S.A."
-        src="https://maps.google.com/maps?q=Mecanizado+ituzaingo&t=m&z=15&output=embed&iwloc=near"
-        width="100%"
-        height="380"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-      <div class="mapa-overlay-card">
-        <p class="mapa-card-title">Mecanizado Ituzaingó S.A.</p>
-        <p class="mapa-card-addr">Cerrito 1081, Ituzaingó</p>
-        <p class="mapa-card-addr">Buenos Aires, Argentina</p>
-        <a href="tel:+541146211721" class="mapa-card-tel">+54 11-4621-1721</a>
-      </div>
+
+      <!-- Mapa Leaflet -->
+      <div class="mapa-leaflet" id="mapaLeaflet" aria-label="Mapa de ubicación"></div>
+
     </div>
   </section>
+
+  <!-- Leaflet CSS + JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  (function() {
+    var map = L.map('mapaLeaflet', {
+      center: [-34.6297825, -58.6962641],
+      zoom: 16,
+      zoomControl: true,
+      scrollWheelZoom: false,
+      attributionControl: true
+    });
+
+    // Tiles oscuros estilo CARTO Dark
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
+
+    // Marcador personalizado naranja
+    var icon = L.divIcon({
+      className: '',
+      html: '<div style="width:36px;height:36px;background:#e85d1a;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,0.5);"></div>',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+      popupAnchor: [0, -40]
+    });
+
+    L.marker([-34.6297825, -58.6962641], { icon: icon })
+      .addTo(map)
+      .bindPopup(
+        '<strong style="font-size:13px;">Mecanizado Ituzaingó S.A.</strong><br>' +
+        '<span style="font-size:12px;color:#888;">Cerrito 1081, Ituzaingó</span>',
+        { maxWidth: 200 }
+      )
+      .openPopup();
+  })();
+  </script>
 
 <footer class="site-footer">
     <div class="footer-top">
