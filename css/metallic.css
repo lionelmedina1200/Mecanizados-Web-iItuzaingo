@@ -1,0 +1,381 @@
+/* ================================================
+   metallic.css — Efectos metálicos / acero
+   
+   Estrategia:
+   - Títulos principales: gradient text plateado
+   - Números estadísticos: plata metálica
+   - Íconos de servicios: fondo acero
+   - Bordes: tono acero azulado
+   - Cards: gradiente metálico sutil en hover
+   - Detalles: líneas y separadores en steel
+   ================================================ */
+
+/* ── Variables metálicas ─────────────────────── */
+:root {
+  /* Gradiente base de acero pulido */
+  --metal-gradient: linear-gradient(
+    135deg,
+    #a0aab8  0%,
+    #d8e0ea 25%,
+    #b8c4d0 45%,
+    #e4eaf0 55%,
+    #98a8b8 75%,
+    #ccd4de 100%
+  );
+
+  /* Gradiente para texto — más contrastado */
+  --metal-text: linear-gradient(
+    135deg,
+    #8a96a8  0%,
+    #dce6f0 30%,
+    #a8b8c8 50%,
+    #e0e8f0 65%,
+    #8090a4 85%,
+    #c8d4e0 100%
+  );
+
+  /* Acero cepillado — para líneas y bordes */
+  --steel-line: linear-gradient(
+    90deg,
+    transparent 0%,
+    #5a6878 20%,
+    #8a9aaa 50%,
+    #5a6878 80%,
+    transparent 100%
+  );
+
+  /* Tono base del acero */
+  --steel:       #8a9aaa;
+  --steel-light: #c0ccd8;
+  --steel-dark:  #4a5868;
+
+  /* Override de borde — tono más metálico */
+  --border:        rgba(138, 154, 170, 0.1);
+  --border-strong: rgba(192, 204, 216, 0.18);
+}
+
+/* ── Mixin texto metálico ─────────────────────── */
+.metal-text {
+  background: var(--metal-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   TÍTULOS PRINCIPALES — gradiente metálico
+   ================================================ */
+
+/* Hero h1 — el más importante */
+.hero-h1 {
+  background: var(--metal-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* em dentro del hero (la parte naranja) — se mantiene naranja */
+.hero-h1 em {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: normal;
+}
+
+/* Section h2 — gradient más sutil, casi blanco con toque metálico */
+.section-h2 {
+  background: linear-gradient(
+    135deg,
+    #d0d8e4 0%,
+    #f0f4f8 40%,
+    #c8d4e0 60%,
+    #e8eef4 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Título del hero card lateral */
+.hero-card-title {
+  color: var(--steel-light);
+  letter-spacing: 0.08em;
+}
+
+/* Títulos de páginas internas */
+.page-header .section-h2 {
+  background: var(--metal-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   NÚMEROS ESTADÍSTICOS — plata metálica
+   ================================================ */
+.stat-val {
+  background: var(--metal-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(192,210,230,0.15));
+}
+
+/* Span naranja dentro del stat (el + y las unidades) */
+.stat-val span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   NÚMEROS DE SERVICIOS Y PILARES — acero
+   ================================================ */
+.service-tile-num,
+.porque-cell-num,
+.pilar-num,
+.proceso-num {
+  background: var(--metal-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.7;
+}
+
+/* ================================================
+   EYEBROW — línea decorativa en acero
+   ================================================ */
+.eyebrow::before {
+  background: linear-gradient(90deg, var(--accent), var(--steel-light));
+}
+
+/* ================================================
+   ÍCONOS DE SERVICIOS — fondo metálico
+   ================================================ */
+.service-tile-icon {
+  background: linear-gradient(135deg, #1e2a3a, #2a3850);
+  border: 1px solid rgba(138, 154, 170, 0.2);
+  box-shadow: inset 0 1px 0 rgba(192, 212, 232, 0.08);
+}
+
+/* Íconos de features del hero card */
+.hero-feature-icon {
+  background: linear-gradient(135deg, #1a2535, #222e45);
+  border: 1px solid rgba(138, 154, 170, 0.15);
+}
+
+/* ================================================
+   CARDS Y SUPERFICIES — acero sutil
+   ================================================ */
+
+/* Service tiles: borde metálico y gradiente en hover */
+.service-tile {
+  border-color: rgba(100, 118, 138, 0.12);
+  background: linear-gradient(160deg, #161d2e 0%, #131928 100%);
+}
+.service-tile:hover {
+  background: linear-gradient(160deg, #1c2540 0%, #18203a 100%);
+  border-color: rgba(138, 154, 170, 0.22);
+}
+
+/* Cards de "por qué" */
+.porque-cell {
+  background: linear-gradient(160deg, #111827 0%, #0f1520 100%);
+  border-top: 2px solid transparent;
+  border-image: var(--steel-line) 1;
+}
+
+/* Celdas de detalle en páginas internas */
+.detalle-cell {
+  background: linear-gradient(160deg, #161d2e 0%, #131928 100%);
+}
+
+/* ================================================
+   NAVBAR — borde inferior metálico
+   ================================================ */
+.navbar {
+  border-bottom-color: rgba(138, 154, 170, 0.15);
+}
+.navbar.scrolled {
+  border-bottom-color: rgba(138, 154, 170, 0.25);
+  box-shadow: 0 1px 0 rgba(138, 154, 170, 0.05), 0 2px 32px rgba(0,0,0,0.5);
+}
+
+/* Nombre del logo en navbar — metálico sutil */
+.nav-logo-name {
+  background: linear-gradient(135deg, #c8d4e0, #f0f4f8, #b8c8d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   HERO — línea separadora metálica
+   ================================================ */
+.hero-stats {
+  border-top-color: rgba(138, 154, 170, 0.15);
+}
+
+.hero::after {
+  background: linear-gradient(90deg, var(--accent), var(--steel-light), transparent);
+  width: 200px;
+}
+
+/* ================================================
+   ISO BAR — acento metálico
+   ================================================ */
+.iso-bar {
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    #d45a18 40%,
+    #e86020 60%,
+    var(--accent) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brillo metálico sobre la barra naranja */
+.iso-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; right: -100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+.iso-bar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: -100%; right: -100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.2), transparent);
+}
+
+/* ================================================
+   PAGE HEADER — línea inferior metálica
+   ================================================ */
+.page-header::after {
+  background: linear-gradient(90deg, var(--accent), var(--steel-light), transparent);
+  width: 240px;
+}
+
+/* ================================================
+   TABLA DE ESPECIFICACIONES — bordes metálicos
+   ================================================ */
+.spec-table,
+.esp-table {
+  border-color: rgba(138, 154, 170, 0.15);
+}
+.spec-table thead th,
+.esp-table thead th {
+  background: linear-gradient(160deg, #111827, #0f1520);
+  color: var(--steel-light);
+}
+.spec-table tbody tr:hover,
+.esp-table tbody tr:hover {
+  background: linear-gradient(160deg, #1c2540, #18203a);
+}
+
+/* ================================================
+   SEPARADOR METÁLICO — clase utilitaria
+   ================================================ */
+.metal-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--steel-line);
+  margin: 2rem 0;
+}
+
+/* ================================================
+   PROCESO STEPS — número metálico
+   ================================================ */
+.proceso-item {
+  background: linear-gradient(160deg, #161d2e, #131928);
+}
+.proceso-item:hover {
+  background: linear-gradient(160deg, #1c2540, #18203a);
+}
+
+/* ================================================
+   CLIENTES — banda metálica
+   ================================================ */
+.s-clientes {
+  background: linear-gradient(160deg, #0e151f, #111827, #0c1018);
+}
+
+/* Separadores entre logos */
+.cliente-item {
+  border-right-color: rgba(100, 118, 138, 0.15);
+}
+
+/* ================================================
+   FOOTER — borde superior metálico
+   ================================================ */
+.site-footer {
+  border-top: 1px solid rgba(138, 154, 170, 0.12);
+  background: linear-gradient(160deg, #0e151f, #111827);
+}
+
+.footer-bottom {
+  border-top-color: rgba(100, 118, 138, 0.1);
+}
+
+/* ================================================
+   BOTÓN GHOST — tono metálico
+   ================================================ */
+.btn-ghost {
+  border-color: rgba(138, 154, 170, 0.25);
+  color: var(--steel-light);
+}
+.btn-ghost:hover {
+  border-color: var(--steel-light);
+  color: #fff;
+  background: rgba(138, 154, 170, 0.08);
+}
+
+/* ================================================
+   SECTOR CHIPS — borde metálico
+   ================================================ */
+.sector-chip {
+  border-color: rgba(100, 118, 138, 0.18);
+}
+.sector-chip:hover {
+  border-color: var(--steel-light);
+  color: var(--steel-light);
+}
+
+/* ================================================
+   MAPA — panel metálico
+   ================================================ */
+.mapa-panel {
+  background: linear-gradient(160deg, #161d2e, #111827);
+}
+.mapa-title {
+  background: var(--metal-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================
+   ANIMACIÓN — shimmer metálico en títulos key
+   ================================================ */
+@keyframes metalShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.hero-h1 {
+  background-size: 200% auto;
+  animation: metalShimmer 6s linear infinite;
+}
+
+/* ================================================
+   RESPONSIVE — sin cambios de layout, solo efectos
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-h1 { animation: none; }
+}
