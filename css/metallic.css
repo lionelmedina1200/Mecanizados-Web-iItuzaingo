@@ -52,7 +52,7 @@ body::before {
 }
 
 /* Todos los elementos sobre el fondo */
-.navbar, section, header, footer, .s-mapa, .s-clientes { position:relative; z-index:1; }
+section, header, footer, .s-mapa, .s-clientes { position:relative; z-index:1; }
 
 /* ================================================
    TEXTO — color acero sólido, sin clip gradient
