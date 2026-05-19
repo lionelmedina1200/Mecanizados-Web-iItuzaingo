@@ -529,3 +529,310 @@
   .mapa-title { animation: none; background-size: 100% auto; }
   .iso-bar::before { animation: none; }
 }
+
+/* ================================================
+   FONDOS ANIMADOS Y CHICHES EXTRA
+   ================================================ */
+
+/* ── Fondo global — luz que se desplaza ──────── */
+body {
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* Luz cálida naranja arriba izq */
+    radial-gradient(ellipse 55% 35% at 5% 8%,
+      rgba(232,93,26,0.07) 0%, transparent 70%),
+    /* Luz fría acero arriba der */
+    radial-gradient(ellipse 50% 40% at 95% 5%,
+      rgba(140,180,220,0.06) 0%, transparent 65%),
+    /* Luz acero centro */
+    radial-gradient(ellipse 60% 50% at 50% 50%,
+      rgba(100,140,180,0.04) 0%, transparent 70%),
+    /* Luz naranja abajo der */
+    radial-gradient(ellipse 45% 30% at 90% 90%,
+      rgba(232,93,26,0.05) 0%, transparent 60%);
+  animation: bgDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgDrift {
+  0%   {
+    background:
+      radial-gradient(ellipse 55% 35% at 5% 8%,   rgba(232,93,26,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 95% 5%,  rgba(140,180,220,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100,140,180,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 30% at 90% 90%, rgba(232,93,26,0.05) 0%, transparent 60%);
+  }
+  33%  {
+    background:
+      radial-gradient(ellipse 55% 35% at 15% 20%,  rgba(232,93,26,0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 10%,  rgba(160,200,235,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 40% 60%,  rgba(100,140,180,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 30% at 75% 80%,  rgba(232,93,26,0.04) 0%, transparent 60%);
+  }
+  66%  {
+    background:
+      radial-gradient(ellipse 55% 35% at 10% 5%,   rgba(232,93,26,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 88% 15%,  rgba(130,175,215,0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 60% 40%,  rgba(110,150,190,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 30% at 85% 95%,  rgba(232,93,26,0.06) 0%, transparent 60%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse 55% 35% at 2% 12%,   rgba(232,93,26,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 92% 3%,   rgba(150,190,230,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 55% 55%,  rgba(100,145,185,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 30% at 88% 88%,  rgba(232,93,26,0.05) 0%, transparent 60%);
+  }
+}
+
+/* Todos los elementos sobre el fondo */
+.navbar, section, header, footer, .s-mapa, .s-clientes {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Textura de acero — grid diagonal sutil ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(180,210,240,1) 0px,
+      rgba(180,210,240,1) 1px,
+      transparent 1px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(180,210,240,1) 0px,
+      rgba(180,210,240,1) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+}
+
+/* ── Rayo de luz que cruza la pantalla ──────── */
+.hero {
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(200,225,245,0.025) 48%,
+    rgba(220,238,255,0.055) 50%,
+    rgba(200,225,245,0.025) 52%,
+    transparent 60%
+  );
+  transform: skewX(-15deg);
+  animation: heroRay 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes heroRay {
+  0%   { left: -40%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 140%; opacity: 0; }
+}
+
+/* ── Partículas de brillo — puntos metálicos ─ */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -40px;
+  width: 3px; height: 3px;
+  background: var(--steel-light);
+  border-radius: 50%;
+  box-shadow:
+    40px  20px 0 rgba(180,210,240,0.6),
+    80px  60px 0 rgba(180,210,240,0.3),
+   120px  10px 0 rgba(232,93,26,0.5),
+   200px  80px 0 rgba(180,210,240,0.4),
+   260px  30px 0 rgba(180,210,240,0.25),
+   300px  70px 0 rgba(232,93,26,0.35),
+   360px  15px 0 rgba(180,210,240,0.5);
+  animation: sparkle 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes sparkle {
+  0%   { opacity: 0.3; transform: translateY(0); }
+  50%  { opacity: 0.8; }
+  100% { opacity: 0.2; transform: translateY(-6px); }
+}
+
+/* ── Borde animado naranja/metal en cards ─── */
+.service-tile {
+  --border-angle: 0turn;
+  animation: borderRotate 6s linear infinite;
+}
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0turn;
+  inherits: false;
+}
+@keyframes borderRotate {
+  to { --border-angle: 1turn; }
+}
+.service-tile {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(160deg, #161d2e 0%, #111520 100%) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      rgba(120,148,168,0.06) 0%,
+      rgba(180,210,240,0.25) 25%,
+      rgba(120,148,168,0.06) 50%,
+      rgba(232,93,26,0.2)    75%,
+      rgba(120,148,168,0.06) 100%
+    ) border-box;
+}
+
+/* ── Líneas de scan horizontales en secciones */
+.s-servicios::before,
+.s-porque::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(140,170,200,0.012) 0px,
+    rgba(140,170,200,0.012) 1px,
+    transparent 1px,
+    transparent 32px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.s-servicios, .s-porque { position: relative; }
+.s-servicios .container,
+.s-porque .container { position: relative; z-index: 1; }
+
+/* ── Glow naranja en el CTA button ─────────── */
+.btn-accent {
+  position: relative;
+  overflow: hidden;
+}
+.btn-accent::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.18) 50%,
+    transparent 60%
+  );
+  transform: skewX(-15deg);
+  animation: btnShine 3.5s ease-in-out infinite;
+}
+@keyframes btnShine {
+  0%   { left: -75%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 150%; opacity: 0; }
+}
+
+/* ── Glow en las estadísticas al hacer hover ─ */
+.stat {
+  transition: transform 0.3s var(--ease);
+  cursor: default;
+}
+.stat:hover { transform: translateY(-4px); }
+.stat:hover .stat-val {
+  filter: drop-shadow(0 0 16px rgba(180,210,240,0.4));
+  animation-duration: 1.5s;
+}
+
+/* ── Números de proceso con línea de acero ── */
+.proceso-item {
+  position: relative;
+  overflow: hidden;
+}
+.proceso-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160,195,220,0.15), transparent);
+}
+
+/* ── Pilares con numeración destacada ───────── */
+.pilar-num,
+.proceso-num,
+.service-tile-num,
+.porque-cell-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+/* ── ISO bar — texto con peso metálico ──────── */
+.iso-bar-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* ── Footer — línea de acero superior ───────── */
+.site-footer::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--steel-line);
+  opacity: 0.5;
+}
+
+/* ── Scrollbar metálica ──────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--steel-mid), var(--steel-light), var(--steel-mid));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--steel-light), #fff, var(--steel-light));
+}
+
+/* ── Selection — highlight metálico ─────────── */
+::selection {
+  background: rgba(140,180,220,0.25);
+  color: #fff;
+}
+
+/* ── Motion safe ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  body::before          { animation: none; }
+  .hero::before         { animation: none; display: none; }
+  .hero-content::before { animation: none; }
+  .service-tile         { animation: none; border: 1px solid rgba(120,148,168,0.2); background: linear-gradient(160deg, #161d2e, #111520); }
+  .btn-accent::before   { animation: none; display: none; }
+  .stat:hover           { transform: none; }
+  .iso-bar::before      { animation: none; }
+}
