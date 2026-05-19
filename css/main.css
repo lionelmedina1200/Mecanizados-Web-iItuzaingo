@@ -351,3 +351,75 @@ a   { color: inherit; text-decoration: none; }
   .iso-bar-seal { width: 56px; height: 56px; }
   .iso-bar-seal img { width: 56px; height: 56px; }
 }
+
+/* ── Sección Nuestra Planta ──────────────────── */
+.s-planta { position: relative; overflow: hidden; }
+
+.planta-img-wrap {
+  position: relative;
+  height: 360px;
+}
+
+.planta-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.planta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10,15,24,0.92) 0%,
+    rgba(10,15,24,0.70) 50%,
+    rgba(10,15,24,0.30) 100%
+  );
+}
+
+.planta-content {
+  position: absolute;
+  top: 50%;
+  left: var(--px);
+  transform: translateY(-50%);
+  max-width: 480px;
+  z-index: 1;
+}
+
+.planta-content .section-h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #e8f0f8;
+}
+
+.planta-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.65;
+}
+
+@media (min-width: 640px) {
+  .planta-img-wrap { height: 420px; }
+  .planta-content { left: 2rem; }
+  .planta-content .section-h2 { font-size: 30px; }
+}
+
+@media (min-width: 1024px) {
+  .planta-img-wrap { height: 500px; }
+  .planta-content {
+    left: calc((100vw - var(--max-w)) / 2 + 2rem);
+    max-width: 560px;
+  }
+  .planta-content .section-h2 { font-size: 36px; }
+  .planta-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(10,15,24,0.95) 0%,
+      rgba(10,15,24,0.72) 45%,
+      rgba(10,15,24,0.15) 100%
+    );
+  }
+}

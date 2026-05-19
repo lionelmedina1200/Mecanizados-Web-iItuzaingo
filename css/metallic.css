@@ -1,838 +1,446 @@
 /* ================================================
-   metallic.css — Acero industrial pronunciado
+   metallic.css — Metal industrial
+   Texto normal (sin gradiente clip), metal en
+   superficies, fondos, bordes y detalles
    ================================================ */
 
 :root {
-  /* Gradiente acero pulido — alto contraste */
-  --metal-gradient: linear-gradient(
-    105deg,
-    #6a7a8a  0%,
-    #c8d8e8 18%,
-    #e8f0f8 28%,
-    #a0b0c0 38%,
-    #d0dce8 50%,
-    #f0f4f8 58%,
-    #8090a4 72%,
-    #c0ccd8 82%,
-    #e4ecf4 90%,
-    #7a8898 100%
-  );
-
-  /* Acero cepillado para texto */
-  --metal-text: linear-gradient(
-    105deg,
-    #7a8898  0%,
-    #dce8f4 22%,
-    #f4f8fc 32%,
-    #98a8bc 45%,
-    #ccdae8 55%,
-    #f0f6fc 65%,
-    #7888a0 80%,
-    #d0dcea 92%,
-    #8898ac 100%
-  );
-
-  /* Línea de acero cepillado */
-  --steel-line: linear-gradient(
-    90deg,
-    transparent 0%,
-    #3a4858 10%,
-    #7a8fa0 30%,
-    #b0c4d4 50%,
-    #7a8fa0 70%,
-    #3a4858 90%,
-    transparent 100%
-  );
-
-  --steel:       #8a9aaa;
-  --steel-light: #c8d8e8;
-  --steel-mid:   #6a7a8a;
-  --steel-dark:  #3a4858;
-
-  /* Bordes con tono metálico visible */
-  --border:        rgba(120, 145, 165, 0.14);
-  --border-strong: rgba(180, 200, 220, 0.22);
+  --steel:        #8a9aaa;
+  --steel-light:  #c8d8e8;
+  --steel-mid:    #6a7a8a;
+  --steel-dark:   #3a4858;
+  --steel-line:   linear-gradient(90deg,transparent 0%,#3a4858 10%,#7a8fa0 30%,#b0c4d4 50%,#7a8fa0 70%,#3a4858 90%,transparent 100%);
+  --border:        rgba(120,145,165,0.14);
+  --border-strong: rgba(180,200,220,0.22);
 }
 
 /* ================================================
-   SHIMMER — animación de luz recorriendo el metal
+   FONDO GLOBAL — luz que se mueve
    ================================================ */
-@keyframes metalShimmer {
-  0%   { background-position: -300% center; }
-  100% { background-position:  300% center; }
-}
+body { position: relative; }
 
-@keyframes steelPulse {
-  0%, 100% { opacity: 0.6; }
-  50%       { opacity: 1; }
-}
-
-/* ================================================
-   NAVBAR — franja metálica inferior visible
-   ================================================ */
-.navbar {
-  border-bottom: 1px solid rgba(140, 165, 185, 0.22);
-  box-shadow: 0 1px 0 rgba(200, 220, 240, 0.06);
-}
-.navbar::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 0; right: 0;
-  height: 1px;
-  background: var(--steel-line);
-  opacity: 0.5;
-}
-.navbar.scrolled {
-  border-bottom-color: rgba(160, 190, 210, 0.3);
-  box-shadow: 0 1px 0 rgba(200,220,240,0.1), 0 4px 32px rgba(0,0,0,0.6);
-}
-
-/* Nombre en navbar — plateado metálico */
-.nav-logo-name {
-  background: linear-gradient(135deg, #b0c0d0, #e8f0f8, #98aabb, #dce8f4);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 5s linear infinite;
-}
-
-/* ================================================
-   HERO — acero muy visible
-   ================================================ */
-
-/* Línea inferior acento metálico */
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 280px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), #c8d8e8, transparent);
-}
-
-/* Título hero — acero brillante con shimmer */
-.hero-h1 {
-  background: var(--metal-text);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 4s linear infinite;
-  filter: drop-shadow(0 2px 12px rgba(180, 210, 240, 0.12));
-}
-
-/* em naranja — se mantiene naranja */
-.hero-h1 em {
-  background: linear-gradient(135deg, #e85d1a, #f07234, #e85d1a);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 3s linear infinite;
-  font-style: normal;
-}
-
-/* Línea separadora de stats — acero */
-.hero-stats {
-  border-top: 1px solid rgba(140, 165, 185, 0.2);
-  position: relative;
-}
-.hero-stats::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 0;
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), var(--steel-light));
-}
-
-/* ================================================
-   ESTADÍSTICAS — números con acero muy visible
-   ================================================ */
-.stat-val {
-  background: var(--metal-gradient);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 5s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(180,210,240,0.18));
-}
-.stat-val span {
-  background: linear-gradient(135deg, #e85d1a, #f08040, #e85d1a);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 3s linear infinite;
-}
-
-/* ================================================
-   TÍTULOS DE SECCIÓN — acero moderado
-   ================================================ */
-.section-h2 {
-  background: linear-gradient(
-    105deg,
-    #b0c0d0  0%,
-    #e8f2fc 35%,
-    #d0dce8 50%,
-    #f0f6fc 65%,
-    #a0b4c4 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 6s linear infinite;
-}
-
-.page-header .section-h2 {
-  background: var(--metal-text);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 4s linear infinite;
-}
-
-/* ================================================
-   EYEBROW — línea en acero
-   ================================================ */
-.eyebrow::before {
-  background: linear-gradient(90deg, var(--accent), var(--steel-light));
-  height: 2px;
-  width: 22px;
-}
-
-/* ================================================
-   CARDS DE SERVICIOS — superficie metálica
-   ================================================ */
-.service-tile {
-  background: linear-gradient(160deg, #161d2e 0%, #111520 100%);
-  border: 1px solid rgba(120, 148, 168, 0.14);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Brillo metálico en el borde superior de la card */
-.service-tile::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(180,210,240,0.25), transparent);
-}
-
-.service-tile:hover {
-  background: linear-gradient(160deg, #1c2540 0%, #161d30 100%);
-  border-color: rgba(170, 200, 225, 0.28);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(180,210,240,0.1);
-}
-
-/* Números 01 02 03 04 en acero */
-.service-tile-num {
-  background: var(--metal-gradient);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-}
-
-/* Nombre del servicio — plateado */
-.service-tile-name {
-  background: linear-gradient(135deg, #c0ccd8, #e8f0f8, #a8b8c8);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Ícono de servicio — fondo acero oscuro */
-.service-tile-icon {
-  background: linear-gradient(135deg, #1a2535, #222e42);
-  border: 1px solid rgba(140, 168, 192, 0.2);
-  box-shadow: inset 0 1px 0 rgba(200,225,245,0.07), 0 2px 6px rgba(0,0,0,0.3);
-}
-
-/* ================================================
-   SECCIÓN "POR QUÉ ELEGIRNOS" — cards de acero
-   ================================================ */
-.porque-cell {
-  background: linear-gradient(160deg, #111827 0%, #0e1520 100%);
-  border-top: 1px solid rgba(120, 148, 168, 0.12);
-  position: relative;
-}
-.porque-cell::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(160,195,220,0.18), transparent);
-}
-
-.porque-cell-num {
-  background: var(--metal-gradient);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.porque-cell-title {
-  background: linear-gradient(135deg, #c0ccd8, #e4eef8, #a8b8c8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ================================================
-   ISO BAR — faja naranja con brillo metálico
-   ================================================ */
-.iso-bar {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    100deg,
-    #c84e10 0%,
-    #e85d1a 30%,
-    #f06830 50%,
-    #e85d1a 70%,
-    #c84e10 100%
-  );
-}
-
-/* Franja de brillo metálico cruzando la barra */
-.iso-bar::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: -60%;
-  width: 40%;
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255,255,255,0.12) 40%,
-    rgba(255,255,255,0.22) 50%,
-    rgba(255,255,255,0.12) 60%,
-    transparent 100%
-  );
-  animation: isoShine 4s ease-in-out infinite;
-}
-@keyframes isoShine {
-  0%   { left: -60%; }
-  100% { left: 120%; }
-}
-
-/* Borde superior e inferior metálicos */
-.iso-bar::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-}
-
-/* ================================================
-   PAGE HEADER — acento metálico
-   ================================================ */
-.page-header {
-  position: relative;
-  background: linear-gradient(160deg, #161d2e 0%, #111520 100%);
-}
-.page-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 220px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--steel-light), transparent);
-}
-
-/* ================================================
-   TABLAS — cabecera metálica
-   ================================================ */
-.spec-table thead th,
-.esp-table  thead th {
-  background: linear-gradient(160deg, #111827, #0e1520);
-  color: var(--steel-light);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-.spec-table tbody tr:hover,
-.esp-table  tbody tr:hover {
-  background: linear-gradient(160deg, #1c2540, #18203a);
-}
-.spec-table, .esp-table {
-  border-color: rgba(120, 148, 168, 0.18);
-}
-
-/* ================================================
-   PROCESO STEPS — número metálico
-   ================================================ */
-.proceso-num {
-  background: var(--metal-gradient);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 900;
-}
-
-/* ================================================
-   HERO CARD LATERAL — superficie metálica
-   ================================================ */
-.hero-card {
-  background: linear-gradient(160deg, #151e30, #111828);
-  border: 1px solid rgba(140, 168, 192, 0.2);
-  box-shadow:
-    inset 0 1px 0 rgba(180,210,240,0.07),
-    0 8px 32px rgba(0,0,0,0.4);
-}
-.hero-card-title {
-  color: var(--steel-light);
-  letter-spacing: 0.08em;
-}
-.hero-feature-icon {
-  background: linear-gradient(135deg, #1a2535, #1e2e44);
-  border: 1px solid rgba(140, 168, 192, 0.18);
-  box-shadow: inset 0 1px 0 rgba(200,225,245,0.06);
-}
-.hero-feature-label {
-  background: linear-gradient(135deg, #c0ccd8, #e0ecf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ================================================
-   BOTÓN GHOST — aro metálico
-   ================================================ */
-.btn-ghost {
-  border: 1px solid rgba(160, 190, 210, 0.3);
-  color: var(--steel-light);
-  background: rgba(138, 154, 170, 0.04);
-}
-.btn-ghost:hover {
-  border-color: var(--steel-light);
-  color: #fff;
-  background: rgba(138, 154, 170, 0.1);
-  box-shadow: 0 0 12px rgba(180, 210, 240, 0.1);
-}
-
-/* ================================================
-   SECTOR CHIPS — aro metálico
-   ================================================ */
-.sector-chip {
-  border: 1px solid rgba(120, 148, 168, 0.2);
-  background: linear-gradient(135deg, #161d2e, #111520);
-}
-.sector-chip:hover {
-  border-color: var(--steel-light);
-  color: var(--steel-light);
-  background: linear-gradient(135deg, #1a2438, #141d2e);
-  box-shadow: 0 0 10px rgba(180,210,240,0.08);
-}
-
-/* ================================================
-   DETALLE CELLS (páginas internas)
-   ================================================ */
-.detalle-cell {
-  background: linear-gradient(160deg, #161d2e, #111520);
-  border-top: 1px solid rgba(120, 148, 168, 0.12);
-}
-.detalle-cell h3 {
-  background: var(--metal-gradient);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.1em;
-}
-
-/* ================================================
-   CONTACTO — info items
-   ================================================ */
-.contact-item-icon {
-  background: linear-gradient(135deg, #1a2535, #1e2e44);
-  border: 1px solid rgba(140, 168, 192, 0.18);
-}
-.contact-box {
-  border-color: rgba(120, 148, 168, 0.15);
-  background: linear-gradient(160deg, #161d2e, #111520);
-}
-
-/* ================================================
-   FOOTER — superficie metálica
-   ================================================ */
-.site-footer {
-  border-top: 1px solid rgba(140, 168, 192, 0.15);
-  background: linear-gradient(160deg, #0e151f, #0c1018);
-}
-.footer-bottom {
-  border-top: 1px solid rgba(100, 128, 148, 0.1);
-}
-
-/* ================================================
-   MAPA — panel metálico
-   ================================================ */
-.mapa-panel {
-  background: linear-gradient(160deg, #161d2e, #111520);
-  border-right-color: rgba(120, 148, 168, 0.15);
-}
-.mapa-title {
-  background: var(--metal-text);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: metalShimmer 5s linear infinite;
-}
-
-/* ================================================
-   CLIENTES — banda
-   ================================================ */
-.s-clientes {
-  background: linear-gradient(160deg, #0e151f, #111827, #0c1018);
-  border-top: 1px solid rgba(120, 148, 168, 0.12);
-  border-bottom: 1px solid rgba(120, 148, 168, 0.12);
-}
-.cliente-item {
-  border-right: 1px solid rgba(100, 128, 148, 0.15);
-}
-
-/* ================================================
-   SEPARADOR METÁLICO — línea de acero
-   ================================================ */
-.metal-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--steel-line);
-  margin: 2rem 0;
-}
-
-/* ================================================
-   MOTION SAFE — respetar preferencias del usuario
-   ================================================ */
-@media (prefers-reduced-motion: reduce) {
-  .hero-h1,
-  .hero-h1 em,
-  .stat-val,
-  .stat-val span,
-  .section-h2,
-  .nav-logo-name,
-  .mapa-title { animation: none; background-size: 100% auto; }
-  .iso-bar::before { animation: none; }
-}
-
-/* ================================================
-   FONDOS ANIMADOS Y CHICHES EXTRA
-   ================================================ */
-
-/* ── Fondo global — luz que se desplaza ──────── */
-body {
-  position: relative;
-}
+/* Luces de fondo animadas */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    /* Luz cálida naranja arriba izq */
-    radial-gradient(ellipse 55% 35% at 5% 8%,
-      rgba(232,93,26,0.07) 0%, transparent 70%),
-    /* Luz fría acero arriba der */
-    radial-gradient(ellipse 50% 40% at 95% 5%,
-      rgba(140,180,220,0.06) 0%, transparent 65%),
-    /* Luz acero centro */
-    radial-gradient(ellipse 60% 50% at 50% 50%,
-      rgba(100,140,180,0.04) 0%, transparent 70%),
-    /* Luz naranja abajo der */
-    radial-gradient(ellipse 45% 30% at 90% 90%,
-      rgba(232,93,26,0.05) 0%, transparent 60%);
-  animation: bgDrift 18s ease-in-out infinite alternate;
+  animation: bgDrift 20s ease-in-out infinite alternate;
 }
-
 @keyframes bgDrift {
-  0%   {
-    background:
-      radial-gradient(ellipse 55% 35% at 5% 8%,   rgba(232,93,26,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 95% 5%,  rgba(140,180,220,0.06) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100,140,180,0.04) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 30% at 90% 90%, rgba(232,93,26,0.05) 0%, transparent 60%);
-  }
-  33%  {
-    background:
-      radial-gradient(ellipse 55% 35% at 15% 20%,  rgba(232,93,26,0.09) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 80% 10%,  rgba(160,200,235,0.07) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 40% 60%,  rgba(100,140,180,0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 30% at 75% 80%,  rgba(232,93,26,0.04) 0%, transparent 60%);
-  }
-  66%  {
-    background:
-      radial-gradient(ellipse 55% 35% at 10% 5%,   rgba(232,93,26,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 88% 15%,  rgba(130,175,215,0.08) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 60% 40%,  rgba(110,150,190,0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 30% at 85% 95%,  rgba(232,93,26,0.06) 0%, transparent 60%);
-  }
-  100% {
-    background:
-      radial-gradient(ellipse 55% 35% at 2% 12%,   rgba(232,93,26,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 92% 3%,   rgba(150,190,230,0.07) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 55% 55%,  rgba(100,145,185,0.04) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 30% at 88% 88%,  rgba(232,93,26,0.05) 0%, transparent 60%);
-  }
+  0%   { background:
+    radial-gradient(ellipse 55% 35% at 5%  8%,  rgba(232,93,26,0.08)  0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 95% 5%,  rgba(140,180,220,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 30% at 90% 90%, rgba(232,93,26,0.05)  0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(100,140,180,0.04) 0%,transparent 65%); }
+  33%  { background:
+    radial-gradient(ellipse 55% 35% at 15% 20%, rgba(232,93,26,0.10)  0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 80% 10%, rgba(160,200,235,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 30% at 75% 80%, rgba(232,93,26,0.04)  0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 40% 60%, rgba(100,140,180,0.05) 0%,transparent 65%); }
+  66%  { background:
+    radial-gradient(ellipse 55% 35% at 10% 5%,  rgba(232,93,26,0.07)  0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 88% 15%, rgba(130,175,215,0.09) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 30% at 85% 95%, rgba(232,93,26,0.06)  0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 60% 40%, rgba(110,150,190,0.05) 0%,transparent 65%); }
+  100% { background:
+    radial-gradient(ellipse 55% 35% at 2%  12%, rgba(232,93,26,0.09)  0%,transparent 65%),
+    radial-gradient(ellipse 50% 40% at 92% 3%,  rgba(150,190,230,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 30% at 88% 88%, rgba(232,93,26,0.05)  0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 55% 55%, rgba(100,145,185,0.04) 0%,transparent 65%); }
 }
 
 /* Todos los elementos sobre el fondo */
-.navbar, section, header, footer, .s-mapa, .s-clientes {
-  position: relative;
-  z-index: 1;
+.navbar, section, header, footer, .s-mapa, .s-clientes { position:relative; z-index:1; }
+
+/* ================================================
+   TEXTO — color acero sólido, sin clip gradient
+   El metal se nota por el tono, no por el shimmer
+   ================================================ */
+
+/* Títulos principales — blanco frío tirando a acero */
+.hero-h1       { color: #e8f0f8; text-shadow: 0 2px 20px rgba(140,180,220,0.15), 0 1px 0 rgba(0,0,0,0.4); }
+.hero-h1 em    { color: var(--accent); text-shadow: 0 0 24px rgba(232,93,26,0.35); font-style:normal; }
+.section-h2    { color: #dce8f4; text-shadow: 0 1px 12px rgba(120,160,200,0.1); }
+.mapa-title    { color: #dce8f4; }
+.page-header .section-h2 { color: #e8f2fc; }
+
+/* Números estadísticos — silver metálico sólido */
+.stat-val { color: var(--steel-light); text-shadow: 0 0 16px rgba(180,210,240,0.2); }
+.stat-val span { color: var(--accent); }
+
+/* Nombres de servicios */
+.service-tile-name { color: #d0dce8; }
+
+/* Títulos de pilares */
+.porque-cell-title { color: #ccd8e4; }
+
+/* Labels de ventajas */
+.ventaja-title { color: #ccd8e4; }
+
+/* Numeración — acero */
+.service-tile-num, .porque-cell-num,
+.pilar-num, .proceso-num {
+  color: var(--steel-mid);
+  font-weight: 800;
+  letter-spacing: 0.14em;
 }
 
-/* ── Textura de acero — grid diagonal sutil ─── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.018;
-  background-image:
-    repeating-linear-gradient(
-      -45deg,
-      rgba(180,210,240,1) 0px,
-      rgba(180,210,240,1) 1px,
-      transparent 1px,
-      transparent 8px
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(180,210,240,1) 0px,
-      rgba(180,210,240,1) 1px,
-      transparent 1px,
-      transparent 8px
-    );
-}
+/* Nombre en navbar */
+.nav-logo-name { color: #d0dce8; }
 
-/* ── Rayo de luz que cruza la pantalla ──────── */
-.hero {
-  overflow: hidden;
-}
+/* ================================================
+   HERO — efectos de superficie metálica
+   ================================================ */
+.hero { overflow: hidden; }
+
+/* Rayo de luz que cruza */
 .hero::before {
   content: '';
   position: absolute;
-  top: -40%;
-  left: -20%;
-  width: 60%;
-  height: 180%;
-  background: linear-gradient(
-    105deg,
+  top: -40%; left: -20%;
+  width: 60%; height: 180%;
+  background: linear-gradient(105deg,
     transparent 40%,
-    rgba(200,225,245,0.025) 48%,
-    rgba(220,238,255,0.055) 50%,
-    rgba(200,225,245,0.025) 52%,
-    transparent 60%
-  );
+    rgba(200,225,245,0.03) 48%,
+    rgba(220,238,255,0.06) 50%,
+    rgba(200,225,245,0.03) 52%,
+    transparent 60%);
   transform: skewX(-15deg);
-  animation: heroRay 8s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
+  animation: heroRay 9s ease-in-out infinite;
+  pointer-events: none; z-index: 0;
 }
 @keyframes heroRay {
-  0%   { left: -40%; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { left: 140%; opacity: 0; }
+  0%   { left:-40%; opacity:0; }
+  8%   { opacity:1; }
+  92%  { opacity:1; }
+  100% { left:140%; opacity:0; }
 }
 
-/* ── Partículas de brillo — puntos metálicos ─ */
-.hero-content {
-  position: relative;
-  z-index: 1;
+/* Línea inferior acento */
+.hero::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:280px; height:2px;
+  background:linear-gradient(90deg, var(--accent), var(--steel-light), transparent);
 }
+
+/* Stats — separador con punto de acento */
+.hero-stats {
+  border-top: 1px solid rgba(140,165,185,0.2);
+  position: relative;
+}
+.hero-stats::before {
+  content:'';
+  position:absolute;
+  top:-1px; left:0;
+  width:60px; height:1px;
+  background:linear-gradient(90deg, var(--accent), var(--steel-light));
+}
+
+/* Partículas de brillo */
+.hero-content { position:relative; z-index:1; }
 .hero-content::before {
-  content: '';
-  position: absolute;
-  top: -20px; right: -40px;
-  width: 3px; height: 3px;
-  background: var(--steel-light);
-  border-radius: 50%;
+  content:'';
+  position:absolute;
+  top:-10px; right:-30px;
+  width:3px; height:3px;
+  border-radius:50%;
+  background:var(--steel-light);
   box-shadow:
-    40px  20px 0 rgba(180,210,240,0.6),
-    80px  60px 0 rgba(180,210,240,0.3),
-   120px  10px 0 rgba(232,93,26,0.5),
-   200px  80px 0 rgba(180,210,240,0.4),
-   260px  30px 0 rgba(180,210,240,0.25),
-   300px  70px 0 rgba(232,93,26,0.35),
-   360px  15px 0 rgba(180,210,240,0.5);
-  animation: sparkle 4s ease-in-out infinite alternate;
-  pointer-events: none;
+    45px 25px 0 rgba(180,210,240,0.55),
+    90px 65px 0 rgba(180,210,240,0.28),
+   130px 15px 0 rgba(232,93,26,0.45),
+   210px 85px 0 rgba(180,210,240,0.38),
+   270px 35px 0 rgba(180,210,240,0.22),
+   310px 75px 0 rgba(232,93,26,0.32);
+  animation: sparkle 4.5s ease-in-out infinite alternate;
+  pointer-events:none;
 }
 @keyframes sparkle {
-  0%   { opacity: 0.3; transform: translateY(0); }
-  50%  { opacity: 0.8; }
-  100% { opacity: 0.2; transform: translateY(-6px); }
+  0%   { opacity:0.25; transform:translateY(0); }
+  50%  { opacity:0.75; }
+  100% { opacity:0.18; transform:translateY(-8px); }
 }
 
-/* ── Borde animado naranja/metal en cards ─── */
-.service-tile {
-  --border-angle: 0turn;
-  animation: borderRotate 6s linear infinite;
+/* ================================================
+   NAVBAR — borde metálico
+   ================================================ */
+.navbar {
+  border-bottom: 1px solid rgba(140,165,185,0.2);
 }
-@property --border-angle {
+.navbar.scrolled {
+  border-bottom-color: rgba(160,190,210,0.28);
+  box-shadow: 0 1px 0 rgba(200,220,240,0.06), 0 4px 32px rgba(0,0,0,0.55);
+}
+
+/* ================================================
+   CARDS DE SERVICIOS — borde cónico animado
+   ================================================ */
+@property --ba {
   syntax: '<angle>';
   initial-value: 0turn;
   inherits: false;
 }
-@keyframes borderRotate {
-  to { --border-angle: 1turn; }
-}
+@keyframes borderSpin { to { --ba: 1turn; } }
+
 .service-tile {
+  --ba: 0turn;
+  animation: borderSpin 8s linear infinite;
   border: 1px solid transparent;
   background:
-    linear-gradient(160deg, #161d2e 0%, #111520 100%) padding-box,
-    conic-gradient(
-      from var(--border-angle),
-      rgba(120,148,168,0.06) 0%,
-      rgba(180,210,240,0.25) 25%,
-      rgba(120,148,168,0.06) 50%,
-      rgba(232,93,26,0.2)    75%,
-      rgba(120,148,168,0.06) 100%
+    linear-gradient(160deg,#161d2e 0%,#111520 100%) padding-box,
+    conic-gradient(from var(--ba),
+      rgba(100,130,155,0.05) 0%,
+      rgba(180,210,240,0.28) 25%,
+      rgba(100,130,155,0.05) 50%,
+      rgba(232,93,26,0.22)   75%,
+      rgba(100,130,155,0.05) 100%
     ) border-box;
+  position: relative; overflow: hidden;
+}
+/* Brillo de superficie en borde superior */
+.service-tile::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(180,210,240,0.22),transparent);
+}
+.service-tile:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(180,210,240,0.08);
 }
 
-/* ── Líneas de scan horizontales en secciones */
-.s-servicios::before,
-.s-porque::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(140,170,200,0.012) 0px,
-    rgba(140,170,200,0.012) 1px,
-    transparent 1px,
-    transparent 32px
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-.s-servicios, .s-porque { position: relative; }
-.s-servicios .container,
-.s-porque .container { position: relative; z-index: 1; }
-
-/* ── Glow naranja en el CTA button ─────────── */
-.btn-accent {
+/* ================================================
+   POR QUÉ ELEGIRNOS
+   ================================================ */
+.porque-cell {
+  background: linear-gradient(160deg,#111827 0%,#0e1520 100%);
   position: relative;
-  overflow: hidden;
 }
-.btn-accent::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -75%;
-  width: 50%;
-  height: 200%;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255,255,255,0.18) 50%,
-    transparent 60%
+.porque-cell::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(160,195,220,0.16),transparent);
+}
+
+/* ================================================
+   ISO BAR — brillo metálico animado
+   ================================================ */
+.iso-bar {
+  position:relative; overflow:hidden;
+  background:linear-gradient(100deg,#c84e10 0%,#e85d1a 35%,#f06830 50%,#e85d1a 65%,#c84e10 100%);
+}
+.iso-bar::before {
+  content:'';
+  position:absolute;
+  top:0; bottom:0; left:-60%; width:40%;
+  background:linear-gradient(105deg,
+    transparent 0%,
+    rgba(255,255,255,0.1) 40%,
+    rgba(255,255,255,0.22) 50%,
+    rgba(255,255,255,0.1) 60%,
+    transparent 100%);
+  animation:isoShine 5s ease-in-out infinite;
+}
+@keyframes isoShine { 0%{left:-60%} 100%{left:120%} }
+.iso-bar::after {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent);
+}
+.iso-bar-title { font-weight:800; text-shadow:0 1px 0 rgba(0,0,0,0.25); }
+
+/* ================================================
+   PAGE HEADER — línea metálica
+   ================================================ */
+.page-header {
+  position:relative;
+  background:linear-gradient(160deg,#161d2e 0%,#111520 100%);
+}
+.page-header::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:220px; height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--steel-light),transparent);
+}
+
+/* PAGE HEADER CON IMAGEN DE FONDO */
+.page-header.has-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-header.has-bg .container { position:relative; z-index:1; padding-bottom:2.5rem; }
+/* Overlay oscuro sobre la foto */
+.page-header.has-bg::before {
+  content:'';
+  position:absolute;
+  inset:0; z-index:0;
+  background:linear-gradient(
+    160deg,
+    rgba(10,15,24,0.88) 0%,
+    rgba(12,16,24,0.75) 50%,
+    rgba(10,15,24,0.88) 100%
   );
-  transform: skewX(-15deg);
-  animation: btnShine 3.5s ease-in-out infinite;
+}
+
+/* ================================================
+   BOTÓN ACCENT — brillo que cruza
+   ================================================ */
+.btn-accent { position:relative; overflow:hidden; }
+.btn-accent::before {
+  content:'';
+  position:absolute;
+  top:-50%; left:-75%;
+  width:50%; height:200%;
+  background:linear-gradient(105deg,
+    transparent 40%,rgba(255,255,255,0.18) 50%,transparent 60%);
+  transform:skewX(-15deg);
+  animation:btnShine 4s ease-in-out infinite;
 }
 @keyframes btnShine {
-  0%   { left: -75%; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { left: 150%; opacity: 0; }
+  0%{left:-75%;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{left:150%;opacity:0}
 }
 
-/* ── Glow en las estadísticas al hacer hover ─ */
-.stat {
-  transition: transform 0.3s var(--ease);
-  cursor: default;
-}
-.stat:hover { transform: translateY(-4px); }
-.stat:hover .stat-val {
-  filter: drop-shadow(0 0 16px rgba(180,210,240,0.4));
-  animation-duration: 1.5s;
-}
+/* ================================================
+   STATS — hover con glow
+   ================================================ */
+.stat { transition:transform 0.3s var(--ease); cursor:default; }
+.stat:hover { transform:translateY(-4px); }
+.stat:hover .stat-val { text-shadow:0 0 20px rgba(180,210,240,0.45); }
 
-/* ── Números de proceso con línea de acero ── */
-.proceso-item {
-  position: relative;
-  overflow: hidden;
+/* ================================================
+   LÍNEAS SCAN en secciones
+   ================================================ */
+.s-servicios, .s-porque { position:relative; }
+.s-servicios::before, .s-porque::before {
+  content:'';
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(140,170,200,0.01) 0px,rgba(140,170,200,0.01) 1px,
+    transparent 1px, transparent 34px
+  );
+  pointer-events:none; z-index:0;
 }
+.s-servicios .container, .s-porque .container { position:relative; z-index:1; }
+
+/* ================================================
+   PROCESO STEPS
+   ================================================ */
+.proceso-item { position:relative; overflow:hidden; }
 .proceso-item::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(160,195,220,0.15), transparent);
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(160,195,220,0.14),transparent);
 }
 
-/* ── Pilares con numeración destacada ───────── */
-.pilar-num,
-.proceso-num,
-.service-tile-num,
-.porque-cell-num {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+/* ================================================
+   TABLAS
+   ================================================ */
+.spec-table thead th, .esp-table thead th {
+  background:linear-gradient(160deg,#111827,#0e1520);
+  color:var(--steel-light);
+  font-weight:700;
+  letter-spacing:0.08em;
 }
-
-/* ── ISO bar — texto con peso metálico ──────── */
-.iso-bar-title {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1);
+.spec-table tbody tr:hover, .esp-table tbody tr:hover {
+  background:linear-gradient(160deg,#1c2540,#18203a);
 }
+.spec-table, .esp-table { border-color:rgba(120,148,168,0.18); }
 
-/* ── Footer — línea de acero superior ───────── */
+/* ================================================
+   FOOTER
+   ================================================ */
+.site-footer {
+  border-top:1px solid rgba(140,168,192,0.14);
+  background:linear-gradient(160deg,#0e151f,#0c1018);
+}
 .site-footer::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: var(--steel-line);
-  opacity: 0.5;
+  content:'';
+  display:block; width:100%; height:1px;
+  background:var(--steel-line);
+  opacity:0.4;
 }
 
-/* ── Scrollbar metálica ──────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
+/* ================================================
+   SCROLLBAR
+   ================================================ */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--steel-mid), var(--steel-light), var(--steel-mid));
-  border-radius: 3px;
+  background:linear-gradient(180deg,var(--steel-mid),var(--steel-light),var(--steel-mid));
+  border-radius:3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--steel-light), #fff, var(--steel-light));
+  background:linear-gradient(180deg,var(--steel-light),#fff,var(--steel-light));
+}
+::selection { background:rgba(140,180,220,0.22); color:#fff; }
+
+/* ================================================
+   EYEBROW
+   ================================================ */
+.eyebrow::before {
+  background:linear-gradient(90deg,var(--accent),var(--steel-light));
+  height:2px; width:22px;
 }
 
-/* ── Selection — highlight metálico ─────────── */
-::selection {
-  background: rgba(140,180,220,0.25);
-  color: #fff;
+/* ================================================
+   BOTÓN GHOST
+   ================================================ */
+.btn-ghost {
+  border-color:rgba(160,190,210,0.28);
+  color:var(--steel-light);
+}
+.btn-ghost:hover {
+  border-color:var(--steel-light);
+  color:#fff;
+  background:rgba(138,154,170,0.08);
+  box-shadow:0 0 14px rgba(180,210,240,0.1);
 }
 
-/* ── Motion safe ─────────────────────────────── */
+/* ================================================
+   SECTOR CHIPS
+   ================================================ */
+.sector-chip {
+  border-color:rgba(120,148,168,0.2);
+  background:linear-gradient(135deg,#161d2e,#111520);
+}
+.sector-chip:hover {
+  border-color:var(--steel-light);
+  color:var(--steel-light);
+}
+
+/* ================================================
+   CLIENTES
+   ================================================ */
+.s-clientes {
+  background:linear-gradient(160deg,#0e151f,#111827,#0c1018);
+  border-top:1px solid rgba(120,148,168,0.12);
+  border-bottom:1px solid rgba(120,148,168,0.12);
+}
+.cliente-item { border-right-color:rgba(100,128,148,0.15); }
+
+/* ================================================
+   MOTION SAFE
+   ================================================ */
 @media (prefers-reduced-motion: reduce) {
-  body::before          { animation: none; }
-  .hero::before         { animation: none; display: none; }
-  .hero-content::before { animation: none; }
-  .service-tile         { animation: none; border: 1px solid rgba(120,148,168,0.2); background: linear-gradient(160deg, #161d2e, #111520); }
-  .btn-accent::before   { animation: none; display: none; }
-  .stat:hover           { transform: none; }
-  .iso-bar::before      { animation: none; }
+  body::before          { animation:none; }
+  .hero::before         { display:none; }
+  .hero-content::before { animation:none; }
+  .service-tile         { animation:none; border:1px solid rgba(120,148,168,0.18); }
+  .btn-accent::before   { display:none; }
+  .stat:hover           { transform:none; }
+  .iso-bar::before      { animation:none; }
 }
