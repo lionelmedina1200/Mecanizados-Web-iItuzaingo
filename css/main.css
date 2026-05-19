@@ -303,12 +303,14 @@ a   { color: inherit; text-decoration: none; }
   width: auto;
   height: auto;
   object-fit: contain;
-  /* Filtro para logos con colores: se ven bien sobre fondo oscuro */
-  filter: brightness(1.1) contrast(1.05);
-  transition: filter 0.2s;
+  /* Todos los logos en plateado metálico — visibles sobre fondo oscuro */
+  filter: grayscale(1) brightness(2.2) contrast(0.8) sepia(0.1);
+  transition: filter 0.4s var(--ease), transform 0.3s var(--ease);
 }
+/* Al pasar el mouse: colores originales */
 .cliente-item:hover img {
-  filter: brightness(1.25) contrast(1.1);
+  filter: grayscale(0) brightness(1.1) contrast(1.05) sepia(0);
+  transform: scale(1.05);
 }
 
 @media (min-width: 640px) {
