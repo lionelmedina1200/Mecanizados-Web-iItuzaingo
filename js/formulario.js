@@ -88,7 +88,7 @@
     // Opción B — Netlify Forms:
     //   Agregar netlify al <form> y no se necesita endpoint
     // ─────────────────────────────────────────────────────────
-    const ENDPOINT = 'https://formspree.io/f/TU_FORM_ID';
+    const ENDPOINT = 'https://formspree.io/f/maqkewzb';
 
     try {
       const res = await fetch(ENDPOINT, {
