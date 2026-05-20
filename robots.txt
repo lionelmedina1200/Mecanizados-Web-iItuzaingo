@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mecanizado.com.ar/sitemap.xml
+Sitemap: https://mecanizados-web-ituzaingo.vercel.app/sitemap.xml
