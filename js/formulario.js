@@ -124,3 +124,44 @@
   });
 
 })();
+
+// ── File drop zone ─────────────────────────────
+(function () {
+  const drop     = document.getElementById('fileDrop');
+  const input    = document.getElementById('archivo');
+  const nameEl   = document.getElementById('fileName');
+  if (!drop || !input) return;
+
+  // Click en el label abre el file picker
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) return;
+    // Validar tamaño máx 10MB
+    if (file.size > 10 * 1024 * 1024) {
+      nameEl.textContent = 'El archivo supera los 10MB.';
+      nameEl.style.color = '#fc8181';
+      input.value = '';
+      return;
+    }
+    nameEl.textContent = '✓ ' + file.name;
+    nameEl.style.color = '';
+  });
+
+  // Drag & drop
+  drop.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    drop.classList.add('dragover');
+  });
+  drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+  drop.addEventListener('drop', (e) => {
+    e.preventDefault();
+    drop.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    // Transferir al input real
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    input.files = dt.files;
+    input.dispatchEvent(new Event('change'));
+  });
+})();

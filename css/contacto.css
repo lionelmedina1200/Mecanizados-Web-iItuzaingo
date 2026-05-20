@@ -343,3 +343,43 @@ a.contact-item-value:active { color: var(--accent); }
   }
   .mapa-title { font-size: 40px; }
 }
+
+/* ── File drop zone ──────────────────────────── */
+.file-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: var(--surface);
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 100px;
+}
+.file-drop:hover,
+.file-drop.dragover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.file-drop-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.file-drop-text u { color: var(--accent); }
+.file-drop-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+/* Icono upload */
+.icon-upload {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='17 8 12 3 7 8'/%3E%3Cline x1='12' y1='3' x2='12' y2='15'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='17 8 12 3 7 8'/%3E%3Cline x1='12' y1='3' x2='12' y2='15'/%3E%3C/svg%3E");
+}

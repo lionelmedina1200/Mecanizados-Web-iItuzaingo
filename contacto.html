@@ -90,6 +90,19 @@
   }}
   </script>
   <link rel="stylesheet" href="css/metallic.css" />
+  <!-- Google Analytics GA4 -->
+  <!-- REEMPLAZÁ "G-XXXXXXXXXX" con tu ID real de Google Analytics 4 -->
+  <!-- Para obtenerlo: analytics.google.com → Administrador → Flujos de datos → tu sitio -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      page_title: document.title,
+      send_page_view: true
+    });
+  </script>
 </head>
 <body>
 
@@ -190,6 +203,16 @@
               ></textarea>
               <span class="field-error" id="err-mensaje" role="alert"></span>
             </div>
+            <div class="field">
+              <label for="archivo">Adjuntar plano o archivo <span style="color:var(--text-muted);font-weight:400;">(PDF, DXF, DWG — máx. 10MB)</span></label>
+              <label class="file-drop" id="fileDrop" for="archivo">
+                <span class="icon icon-upload icon-muted icon-lg" aria-hidden="true"></span>
+                <span class="file-drop-text">Arrastrá el archivo acá o <u>hacé clic para buscar</u></span>
+                <span class="file-drop-name" id="fileName"></span>
+                <input type="file" id="archivo" name="archivo" accept=".pdf,.dxf,.dwg,.jpg,.jpeg,.png" style="display:none;" />
+              </label>
+            </div>
+
             <div class="form-submit-wrap">
               <button type="submit" class="btn btn-accent btn-full">Enviar consulta &rarr;</button>
               <p class="form-legal">* Campos obligatorios. Tu información es confidencial y no la compartimos con nadie.</p>

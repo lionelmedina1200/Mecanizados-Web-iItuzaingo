@@ -150,6 +150,19 @@
       .two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
     }
   </style>
+  <!-- Google Analytics GA4 -->
+  <!-- REEMPLAZÁ "G-XXXXXXXXXX" con tu ID real de Google Analytics 4 -->
+  <!-- Para obtenerlo: analytics.google.com → Administrador → Flujos de datos → tu sitio -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      page_title: document.title,
+      send_page_view: true
+    });
+  </script>
 </head>
 <body>
 
@@ -307,30 +320,63 @@
       <h2 class="section-h2" style="font-size:26px;margin-bottom:8px;">Las personas detrás de cada pieza</h2>
       <p class="section-lead">Un equipo técnico con décadas de experiencia en metalurgia, mecanizado y control de calidad.</p>
       <div class="equipo-grid">
+
         <div class="equipo-card reveal">
-          <div class="equipo-avatar">GR</div>
+          <div class="equipo-header">
+            <div class="equipo-avatar">GR</div>
+            <div class="equipo-badge">Dirección</div>
+          </div>
           <p class="equipo-nombre">Gerencia General</p>
-          <p class="equipo-cargo">Dirección</p>
-          <p class="equipo-bio">Segunda generación al frente de la empresa. Formación en ingeniería industrial y 25 años en el rubro.</p>
+          <p class="equipo-cargo">Segunda generación</p>
+          <p class="equipo-bio">Al frente de la empresa desde 2001. Ingeniero industrial con foco en procesos y calidad. Conoce la planta de memoria — y cada cliente por nombre.</p>
+          <div class="equipo-stats">
+            <div class="equipo-stat"><span class="equipo-stat-val">+25</span><span class="equipo-stat-key">años en el rubro</span></div>
+            <div class="equipo-stat"><span class="equipo-stat-val">ISO</span><span class="equipo-stat-key">9001:2015</span></div>
+          </div>
         </div>
+
         <div class="equipo-card reveal">
-          <div class="equipo-avatar">JP</div>
+          <div class="equipo-header">
+            <div class="equipo-avatar">JP</div>
+            <div class="equipo-badge">Producción</div>
+          </div>
           <p class="equipo-nombre">Jefatura de Producción</p>
-          <p class="equipo-cargo">Producción CNC</p>
-          <p class="equipo-bio">Técnico en mecanizado con más de 18 años en la empresa. Especialista en programación de 4° eje.</p>
+          <p class="equipo-cargo">Especialista CNC</p>
+          <p class="equipo-bio">18 años programando tornos y centros de mecanizado. Especialista en 4° eje e interpolación milesimal. Si hay una pieza difícil, pasa por sus manos.</p>
+          <div class="equipo-stats">
+            <div class="equipo-stat"><span class="equipo-stat-val">+18</span><span class="equipo-stat-key">años en la empresa</span></div>
+            <div class="equipo-stat"><span class="equipo-stat-val">4°</span><span class="equipo-stat-key">eje CNC</span></div>
+          </div>
         </div>
+
         <div class="equipo-card reveal">
-          <div class="equipo-avatar">MV</div>
+          <div class="equipo-header">
+            <div class="equipo-avatar">MV</div>
+            <div class="equipo-badge">Calidad</div>
+          </div>
           <p class="equipo-nombre">Responsable de Calidad</p>
-          <p class="equipo-cargo">Calidad ISO</p>
-          <p class="equipo-bio">A cargo del sistema de gestión ISO 9001. Auditor interno certificado con enfoque en trazabilidad.</p>
+          <p class="equipo-cargo">Auditor ISO interno</p>
+          <p class="equipo-bio">A cargo del sistema de gestión ISO 9001 y del laboratorio de metrología. Nada sale de planta sin su control. Documentación PPAP incluida.</p>
+          <div class="equipo-stats">
+            <div class="equipo-stat"><span class="equipo-stat-val">MMC</span><span class="equipo-stat-key">+ proyector digital</span></div>
+            <div class="equipo-stat"><span class="equipo-stat-val">PPAP</span><span class="equipo-stat-key">automotriz</span></div>
+          </div>
         </div>
+
         <div class="equipo-card reveal">
-          <div class="equipo-avatar">LR</div>
+          <div class="equipo-header">
+            <div class="equipo-avatar">LR</div>
+            <div class="equipo-badge">Comercial</div>
+          </div>
           <p class="equipo-nombre">Jefatura Comercial</p>
           <p class="equipo-cargo">Ventas técnicas</p>
-          <p class="equipo-bio">Conoce cada proceso de la planta. Las cotizaciones las hace alguien que entiende lo que está cotizando.</p>
+          <p class="equipo-bio">Cuando llamás, te atiende alguien que sabe de qué habla. Las cotizaciones las hace quien conoce el proceso — no un área comercial que después pregunta a producción.</p>
+          <div class="equipo-stats">
+            <div class="equipo-stat"><span class="equipo-stat-val">24hs</span><span class="equipo-stat-key">respuesta máx.</span></div>
+            <div class="equipo-stat"><span class="equipo-stat-val">3</span><span class="equipo-stat-key">tecnologías</span></div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

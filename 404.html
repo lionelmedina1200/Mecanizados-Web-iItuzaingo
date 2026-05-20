@@ -64,6 +64,19 @@
       border-radius:2px;
     }
   </style>
+  <!-- Google Analytics GA4 -->
+  <!-- REEMPLAZÁ "G-XXXXXXXXXX" con tu ID real de Google Analytics 4 -->
+  <!-- Para obtenerlo: analytics.google.com → Administrador → Flujos de datos → tu sitio -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      page_title: document.title,
+      send_page_view: true
+    });
+  </script>
 </head>
 <body>
 
