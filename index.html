@@ -90,7 +90,15 @@
 </head>
 <body>
 
-    <nav class="navbar" id="navbar">
+      <!-- Loader -->
+  <div class="site-loader" id="siteLoader">
+    <div class="loader-logo">
+      <img src="assets/logo_nav.png" alt="Cargando..." />
+    </div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+
+<nav class="navbar" id="navbar">
     <div class="nav-wrap">
       <a href="index.html" class="nav-logo">
         <div class="nav-logo-img-wrap">
@@ -297,6 +305,39 @@
 
 
 
+
+  <!-- GALERÍA -->
+  <section class="s-galeria">
+    <div class="container">
+      <span class="eyebrow">Nuestro trabajo</span>
+      <h2 class="section-h2">Lo que sale de nuestra planta</h2>
+      <p class="section-lead">Piezas de alta complejidad para industrias que no toleran errores.</p>
+    </div>
+    <div class="galeria-grid">
+      <a href="mecanizado.html" class="galeria-item galeria-item--lg reveal">
+        <img src="assets/cnc_bg.jpg" alt="Mecanizado CNC — torno de precisión" loading="lazy" />
+        <div class="galeria-overlay">
+          <span class="galeria-tag">Mecanizado CNC</span>
+          <p class="galeria-title">Piezas de revolución<br>hasta 800 mm</p>
+        </div>
+      </a>
+      <a href="laser.html" class="galeria-item reveal">
+        <img src="assets/laser_bg.jpg" alt="Corte láser industrial con chispas" loading="lazy" />
+        <div class="galeria-overlay">
+          <span class="galeria-tag">Corte Láser</span>
+          <p class="galeria-title">Precisión<br>0,02 mm</p>
+        </div>
+      </a>
+      <a href="estampado.html" class="galeria-item reveal">
+        <img src="assets/planta.jpg" alt="Planta de estampado Mecanizado Ituzaingó" loading="lazy" />
+        <div class="galeria-overlay">
+          <span class="galeria-tag">Planta propia</span>
+          <p class="galeria-title">3.000 m² de<br>capacidad productiva</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- NUESTRA PLANTA -->
   <section class="s-planta">
     <div class="planta-img-wrap">
@@ -359,6 +400,67 @@
             <p class="nosotros-label">tecnologías bajo un techo</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIOS -->
+  <section class="s-testimonios">
+    <div class="container">
+      <span class="eyebrow">Lo que dicen nuestros clientes</span>
+      <h2 class="section-h2">Más de 45 años construyendo relaciones</h2>
+      <div class="testi-grid">
+
+        <div class="testi-card reveal">
+          <div class="testi-quote-icon" aria-hidden="true">&ldquo;</div>
+          <p class="testi-text">
+            Trabajamos con Mecanizado Ituzaingó hace más de ocho años y nunca tuvimos
+            una no conformidad. Las piezas llegan en tiempo, con el certificado y dentro
+            de tolerancia. Para nosotros es un proveedor estratégico, no un proveedor más.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">RM</div>
+            <div>
+              <p class="testi-name">Ricardo Morales</p>
+              <p class="testi-role">Gerente de Compras — Sector Automotriz</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-quote-icon" aria-hidden="true">&ldquo;</div>
+          <p class="testi-text">
+            Lo que más nos sorprendió fue la velocidad de respuesta y que cuando llamás,
+            te atiende alguien que realmente conoce el proceso. Cotizamos una pieza
+            compleja en acero inoxidable y al día siguiente ya teníamos el presupuesto
+            detallado con tiempos reales.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">SV</div>
+            <div>
+              <p class="testi-name">Sebastián Valdés</p>
+              <p class="testi-role">Responsable de Ingeniería — Industria Oil &amp; Gas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="testi-quote-icon" aria-hidden="true">&ldquo;</div>
+          <p class="testi-text">
+            Tener CNC, estampado y láser en un solo proveedor nos simplificó mucho la
+            logística. Antes coordinábamos tres empresas distintas para el mismo proyecto.
+            Con Ituzaingó es una sola llamada y un solo punto de responsabilidad.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">CP</div>
+            <div>
+              <p class="testi-name">Carolina Pereyra</p>
+              <p class="testi-role">Jefa de Producción — Industria Electrodomésticos</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -482,7 +584,7 @@
         <p class="section-lead">Mandanos las medidas de tu pieza y te decimos qué podemos hacer, en cuánto tiempo y a qué precio. Sin vueltas.</p>
         <div class="s-cta-actions">
           <a href="contacto.html" class="btn btn-accent">Pedir cotización</a>
-          <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp directo</a>
+          <a href="https://wa.me/5491146211721?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quer%C3%ADa%20consultar%20sobre%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp directo</a>
         </div>
       </div>
     </div>
@@ -531,7 +633,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/5491146211721" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+  <a href="https://wa.me/5491146211721?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quer%C3%ADa%20consultar%20sobre%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
     <span class="icon icon-wa icon-white icon-lg"></span>
   </a>
   <script src="js/main.js"></script>

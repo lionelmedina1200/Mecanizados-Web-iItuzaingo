@@ -128,3 +128,14 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     }
   });
 });
+
+// ── Loader ─────────────────────────────────────
+(function () {
+  const loader = document.getElementById('siteLoader');
+  if (!loader) return;
+  window.addEventListener('load', () => {
+    setTimeout(() => loader.classList.add('hidden'), 600);
+  });
+  // Fallback: sacar el loader si tarda más de 3s
+  setTimeout(() => loader && loader.classList.add('hidden'), 3000);
+})();
