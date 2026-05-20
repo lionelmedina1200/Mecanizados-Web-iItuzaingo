@@ -75,3 +75,56 @@
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 })();
+
+// ── Contadores animados (Nosotros) ─────────────
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el   = entry.target.querySelector('.nosotros-val');
+    const unit = entry.target.querySelector('.nosotros-unit');
+    if (!el) return;
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed  = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cuártica
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(eased * target);
+      el.textContent = target >= 1000
+        ? current.toLocaleString('es-AR')
+        : current;
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target >= 1000
+        ? target.toLocaleString('es-AR')
+        : target;
+    }
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.nosotros-num').forEach(el => counterObserver.observe(el));
+
+// ── FAQ accordion ──────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen   = btn.getAttribute('aria-expanded') === 'true';
+    const answer   = btn.nextElementSibling;
+    const allBtns  = document.querySelectorAll('.faq-q');
+
+    // Cerrar todos
+    allBtns.forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      const a = b.nextElementSibling;
+      if (a) a.classList.remove('open');
+    });
+
+    // Abrir el clickeado si estaba cerrado
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      if (answer) answer.classList.add('open');
+    }
+  });
+});

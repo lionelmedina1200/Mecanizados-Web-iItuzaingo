@@ -282,17 +282,22 @@ section, header, footer, .s-mapa, .s-clientes { position:relative; z-index:1; }
   align-items: flex-end;
 }
 .page-header.has-bg .container { position:relative; z-index:1; padding-bottom:2.5rem; }
-/* Overlay oscuro sobre la foto */
+/* Overlay oscuro sobre la foto — funde limpio hacia abajo */
 .page-header.has-bg::before {
   content:'';
   position:absolute;
   inset:0; z-index:0;
-  background:linear-gradient(
-    160deg,
-    rgba(10,15,24,0.88) 0%,
-    rgba(12,16,24,0.75) 50%,
-    rgba(10,15,24,0.88) 100%
-  );
+  background:
+    linear-gradient(to bottom,
+      rgba(10,15,24,0.55) 0%,
+      rgba(10,15,24,0.72) 60%,
+      rgba(10,15,24,0.97) 100%
+    ),
+    linear-gradient(to right,
+      rgba(10,15,24,0.6) 0%,
+      rgba(10,15,24,0.2) 60%,
+      rgba(10,15,24,0.1) 100%
+    );
 }
 
 /* ================================================
@@ -444,3 +449,26 @@ section, header, footer, .s-mapa, .s-clientes { position:relative; z-index:1; }
   .stat:hover           { transform:none; }
   .iso-bar::before      { animation:none; }
 }
+
+/* ── Hero card watermark CNC ─────────────────── */
+.hero-card {
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: 'CNC';
+  position: absolute;
+  bottom: -14px;
+  right: -12px;
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: -4px;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(180,210,240,0.13);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-card > * { position: relative; z-index: 1; }

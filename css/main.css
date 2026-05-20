@@ -423,3 +423,203 @@ a   { color: inherit; text-decoration: none; }
     );
   }
 }
+
+/* ── Sección Nosotros ────────────────────────── */
+.s-nosotros {
+  background: var(--surface);
+  padding: 56px var(--px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.nosotros-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.nosotros-p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.nosotros-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.nosotros-tag {
+  background: var(--accent-dim);
+  border: 1px solid rgba(232,93,26,0.25);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 13px;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
+}
+
+/* Números animados */
+.nosotros-numeros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.nosotros-num {
+  background: var(--bg-elevated);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.nosotros-val {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--steel-light, #c8d8e8);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.nosotros-unit {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-left: 2px;
+}
+.nosotros-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── FAQ ────────────────────────────────────── */
+.s-faq {
+  background: var(--bg);
+  padding: 56px var(--px);
+}
+.s-faq .section-h2 { margin-bottom: 32px; }
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.faq-item { background: var(--surface); }
+
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-q:hover { background: var(--surface-hover); }
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--steel-mid, #6a7a8a);
+  border-radius: 50%;
+  position: relative;
+  transition: border-color 0.2s, transform 0.3s;
+}
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  background: var(--steel-mid, #6a7a8a);
+  border-radius: 1px;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.faq-icon::before {
+  width: 8px; height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+.faq-icon::after {
+  width: 1.5px; height: 8px;
+  transform: translate(-50%, -50%);
+}
+.faq-q[aria-expanded="true"] .faq-icon {
+  border-color: var(--accent);
+  transform: rotate(45deg);
+}
+.faq-q[aria-expanded="true"] .faq-icon::before,
+.faq-q[aria-expanded="true"] .faq-icon::after {
+  background: var(--accent);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+.faq-a.open {
+  max-height: 300px;
+  padding: 0 20px 18px;
+}
+.faq-a p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Tablet 640px+ ───────────────────────────── */
+@media (min-width: 640px) {
+  .s-nosotros { padding: 72px var(--px); }
+  .s-faq { padding: 72px var(--px); }
+  .nosotros-val { font-size: 44px; }
+  .faq-q { font-size: 15px; padding: 20px 24px; }
+  .faq-a.open { padding: 0 24px 20px; }
+}
+
+/* ── Desktop 1024px+ ─────────────────────────── */
+@media (min-width: 1024px) {
+  .s-nosotros { padding: 96px 2rem; }
+  .s-faq { padding: 96px 2rem; }
+  .nosotros-inner {
+    flex-direction: row;
+    gap: 5rem;
+    align-items: flex-start;
+  }
+  .nosotros-texto { flex: 1; }
+  .nosotros-numeros {
+    width: 360px;
+    flex-shrink: 0;
+  }
+  .nosotros-val { font-size: 48px; }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+  }
+}
