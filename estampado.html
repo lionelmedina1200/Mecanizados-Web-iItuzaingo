@@ -25,9 +25,35 @@
     .proceso-body { padding:18px 16px; }
     .proceso-title{ font-size:14px; font-weight:600; color:var(--text-primary); margin-bottom:4px; }
     .proceso-desc { font-size:13px; color:var(--text-secondary); line-height:1.6; }
-    .apps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; }
-    .app-card  { background:var(--surface); border:1px solid var(--border); border-radius:var(--r-md); padding:16px 12px; text-align:center; }
-    .app-name  { font-size:13px; font-weight:600; color:var(--text-primary); }
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+ 
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px 18px;
+  text-align: center;
+  flex: 1 1 calc(50% - 10px);
+  min-width: 130px;
+  transition: border-color 0.2s;
+}
+ 
+.app-card:hover { border-color: var(--accent); }
+ 
+.app-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+ 
+@media (min-width: 640px) {
+  .app-card { flex: 1 1 calc(33% - 10px); }
+}
+ 
+@media (min-width: 1024px) {
+  .app-card { flex: 1 1 auto; }
+}
     @media(min-width:640px){ .inner-section{ padding:64px var(--px); } }
     @media(min-width:1024px){ .inner-section{ padding:80px 2rem; } .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; } }
   </style>
