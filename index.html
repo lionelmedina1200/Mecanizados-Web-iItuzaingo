@@ -112,6 +112,7 @@
     "url": "https://mecanizado-web-ituzaingo.vercel.app"
   }
 </script>
+  <link rel="stylesheet" href="css/banner.css" />
 </head>
 <body>
 
@@ -151,6 +152,60 @@
       </button>
     </div>
   </nav>
+
+  <!-- BANNER DE IMÁGENES — rota cada 5s -->
+  <section class="img-banner" id="imgBanner" aria-label="Galería de piezas fabricadas">
+    <div class="banner-slide active">
+      <img src="assets/banner/banner_6.jpg" alt="Corte láser en proceso sobre chapa de acero" loading="eager" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Soporte multipieza</span>
+        <span class="banner-label-proceso">Corte Láser</span>
+      </div>
+    </div>
+    <div class="banner-slide">
+      <img src="assets/banner/banner_1.jpg" alt="Bloque valvular mecanizado en acero" loading="lazy" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Bloque valvular</span>
+        <span class="banner-label-proceso">Mecanizado CNC</span>
+      </div>
+    </div>
+    <div class="banner-slide">
+      <img src="assets/banner/banner_2.jpg" alt="Conexión hidráulica mecanizada en bronce" loading="lazy" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Conexión hidráulica</span>
+        <span class="banner-label-proceso">Mecanizado CNC</span>
+      </div>
+    </div>
+    <div class="banner-slide">
+      <img src="assets/banner/banner_3.jpg" alt="Soporte con nervio de refuerzo en acero" loading="lazy" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Soporte con nervio</span>
+        <span class="banner-label-proceso">Estampado</span>
+      </div>
+    </div>
+    <div class="banner-slide">
+      <img src="assets/banner/banner_4.jpg" alt="Soporte perforado estampado en chapa" loading="lazy" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Soporte perforado</span>
+        <span class="banner-label-proceso">Estampado</span>
+      </div>
+    </div>
+    <div class="banner-slide">
+      <img src="assets/banner/banner_5.jpg" alt="Control dimensional de piezas estampadas con calibre" loading="lazy" />
+      <div class="banner-label">
+        <span class="banner-label-pieza">Control dimensional</span>
+        <span class="banner-label-proceso">Calidad ISO 9001</span>
+      </div>
+    </div>
+    <div class="banner-dots">
+      <span class="banner-dot active"></span>
+      <span class="banner-dot"></span>
+      <span class="banner-dot"></span>
+      <span class="banner-dot"></span>
+      <span class="banner-dot"></span>
+      <span class="banner-dot"></span>
+    </div>
+  </section>
 
   <section class="hero">
     <div class="hero-watermark" aria-hidden="true">CNC</div>
@@ -683,5 +738,6 @@
     <span class="icon icon-wa icon-white icon-lg"></span>
   </a>
   <script src="js/main.js"></script>
+  <script src="js/banner.js"></script>
 </body>
 </html>
