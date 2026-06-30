@@ -153,58 +153,80 @@
     </div>
   </nav>
 
-  <!-- BANNER DE IMÁGENES — rota cada 5s -->
+  <!-- BANNER DE IMÁGENES — rota cada 3.5s -->
   <section class="img-banner" id="imgBanner" aria-label="Galería de piezas fabricadas">
+
     <div class="banner-slide active">
-      <img src="assets/banner/banner_6.jpg" alt="Corte láser en proceso sobre chapa de acero" loading="eager" />
+      <img src="assets/banner/banner_6.jpg" alt="Corte láser en proceso sobre chapa de acero" loading="eager" fetchpriority="high" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Soporte multipieza</span>
         <span class="banner-label-proceso">Corte Láser</span>
+        <span class="banner-label-pieza">Soporte multipieza</span>
       </div>
     </div>
+
     <div class="banner-slide">
-      <img src="assets/banner/banner_1.jpg" alt="Bloque valvular mecanizado en acero" loading="lazy" />
+      <img src="assets/banner/banner_1.jpg" alt="Bloque valvular mecanizado en acero inoxidable" loading="lazy" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Bloque valvular</span>
         <span class="banner-label-proceso">Mecanizado CNC</span>
+        <span class="banner-label-pieza">Bloque valvular</span>
       </div>
     </div>
+
     <div class="banner-slide">
       <img src="assets/banner/banner_2.jpg" alt="Conexión hidráulica mecanizada en bronce" loading="lazy" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Conexión hidráulica</span>
         <span class="banner-label-proceso">Mecanizado CNC</span>
+        <span class="banner-label-pieza">Conexión hidráulica</span>
       </div>
     </div>
+
     <div class="banner-slide">
       <img src="assets/banner/banner_3.jpg" alt="Soporte con nervio de refuerzo en acero" loading="lazy" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Soporte con nervio</span>
         <span class="banner-label-proceso">Estampado</span>
+        <span class="banner-label-pieza">Soporte con nervio</span>
       </div>
     </div>
+
     <div class="banner-slide">
       <img src="assets/banner/banner_4.jpg" alt="Soporte perforado estampado en chapa" loading="lazy" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Soporte perforado</span>
         <span class="banner-label-proceso">Estampado</span>
+        <span class="banner-label-pieza">Soporte perforado</span>
       </div>
     </div>
+
     <div class="banner-slide">
-      <img src="assets/banner/banner_5.jpg" alt="Control dimensional de piezas estampadas con calibre" loading="lazy" />
+      <img src="assets/banner/banner_5.jpg" alt="Control dimensional con calibre Mitutoyo" loading="lazy" />
       <div class="banner-label">
-        <span class="banner-label-pieza">Control dimensional</span>
         <span class="banner-label-proceso">Calidad ISO 9001</span>
+        <span class="banner-label-pieza">Control dimensional</span>
       </div>
     </div>
+
+    <!-- Flecha anterior -->
+    <button class="banner-arrow banner-arrow-prev" aria-label="Imagen anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <!-- Flecha siguiente -->
+    <button class="banner-arrow banner-arrow-next" aria-label="Imagen siguiente">
+      <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+
+    <!-- Dots -->
     <div class="banner-dots">
-      <span class="banner-dot active"></span>
-      <span class="banner-dot"></span>
-      <span class="banner-dot"></span>
-      <span class="banner-dot"></span>
-      <span class="banner-dot"></span>
-      <span class="banner-dot"></span>
+      <button class="banner-dot active" aria-label="Ir a imagen 1"></button>
+      <button class="banner-dot" aria-label="Ir a imagen 2"></button>
+      <button class="banner-dot" aria-label="Ir a imagen 3"></button>
+      <button class="banner-dot" aria-label="Ir a imagen 4"></button>
+      <button class="banner-dot" aria-label="Ir a imagen 5"></button>
+      <button class="banner-dot" aria-label="Ir a imagen 6"></button>
     </div>
+
+    <!-- Barra de progreso -->
+    <div class="banner-progress" aria-hidden="true"></div>
+
   </section>
 
   <section class="hero">
