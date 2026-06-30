@@ -303,14 +303,13 @@ a   { color: inherit; text-decoration: none; }
   width: auto;
   height: auto;
   object-fit: contain;
-  /* Todos los logos en plateado metálico — visibles sobre fondo oscuro */
-  filter: grayscale(1) brightness(2.2) contrast(0.8) sepia(0.1);
-  transition: filter 0.4s var(--ease), transform 0.3s var(--ease);
+  /* Colores originales siempre, máxima calidad */
+  filter: brightness(1.05) contrast(1.08) saturate(1.1);
+  transition: filter 0.3s var(--ease), transform 0.3s var(--ease);
 }
-/* Al pasar el mouse: colores originales */
 .cliente-item:hover img {
-  filter: grayscale(0) brightness(1.1) contrast(1.05) sepia(0);
-  transform: scale(1.05);
+  filter: brightness(1.15) contrast(1.1) saturate(1.2);
+  transform: scale(1.07);
 }
 
 @media (min-width: 640px) {
