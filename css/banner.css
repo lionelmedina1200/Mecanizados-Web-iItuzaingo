@@ -1,31 +1,33 @@
 /* ================================================
-   banner.css — Carrusel hero fullscreen
+   banner.css — Carrusel hero a pantalla completa
    ================================================ */
 
-/* ── Contenedor principal ────────────────────── */
 .img-banner {
   position: relative;
   width: 100%;
-  height: calc(100svh - 60px);   /* full viewport menos navbar */
-  min-height: 380px;
-  max-height: 960px;
+  height: 56vw;          /* proporción mobile natural */
+  min-height: 280px;
+  max-height: 560px;
   overflow: hidden;
-  background: #060a10;
-  user-select: none;
+  background: #0c1018;
+  cursor: grab;
 }
+.img-banner:active { cursor: grabbing; }
 
-/* ── Slides ──────────────────────────────────── */
+/* ── Slides ───────────────────────────────────── */
 .banner-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.1s cubic-bezier(0.45, 0, 0.55, 1);
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+  user-select: none;
 }
 .banner-slide.active {
   opacity: 1;
   pointer-events: auto;
 }
+.banner-slide.prev { opacity: 0; }
 
 .banner-slide img {
   width: 100%;
@@ -33,148 +35,118 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  will-change: transform;
+  filter: brightness(0.78) contrast(1.08) saturate(1.06);
+  pointer-events: none;
 }
 
-/* ── Overlay degradado sobre imagen ─────────── */
-.banner-slide::before {
+/* Overlay gradiente — parte inferior oscura para legibilidad */
+.banner-slide::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    /* oscurecer bordes laterales */
-    linear-gradient(to right,
-      rgba(6,10,16,0.5) 0%,
-      rgba(6,10,16,0.05) 25%,
-      rgba(6,10,16,0.05) 75%,
-      rgba(6,10,16,0.35) 100%
-    ),
-    /* degradado hacia abajo — integra con el resto del sitio */
-    linear-gradient(to bottom,
-      rgba(6,10,16,0.25) 0%,
-      rgba(6,10,16,0.0)  35%,
-      rgba(6,10,16,0.0)  55%,
-      rgba(6,10,16,0.65) 85%,
-      rgba(6,10,16,0.98) 100%
+    linear-gradient(to top,
+      rgba(8, 12, 20, 0.85)   0%,
+      rgba(8, 12, 20, 0.45)  35%,
+      rgba(8, 12, 20, 0.10)  65%,
+      rgba(8, 12, 20, 0.18) 100%
     );
-  z-index: 1;
+  pointer-events: none;
 }
 
-/* ── Label elegante — sin caja, solo texto ─── */
+/* ── Label caja naranja ───────────────────────── */
 .banner-label {
   position: absolute;
-  bottom: 64px;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  padding: 0 28px;
-  pointer-events: none;
-
-  /* Animación de entrada con cada slide */
-  transform: translateY(12px);
-  opacity: 0;
-  transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
-    opacity   0.7s ease 0.3s;
-}
-.banner-slide.active .banner-label {
-  transform: translateY(0);
-  opacity: 1;
+  bottom: 12px;
+  left: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 14px;
+  background: rgba(10, 15, 24, 0.55);
+  border: 1px solid rgba(255, 106, 0, 0.5);
+  border-radius: 6px;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  max-width: calc(100% - 24px);
 }
 
-/* Pill del proceso */
-.banner-label-proceso {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #ff7a1a;
-  margin-bottom: 10px;
-}
-.banner-label-proceso::before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 1.5px;
-  background: #ff7a1a;
-  border-radius: 1px;
-  box-shadow: 0 0 6px rgba(255,122,26,0.8);
-}
-
-/* Nombre de la pieza — grande y limpio */
 .banner-label-pieza {
-  display: block;
-  font-family: var(--font-display, 'Inter', sans-serif);
-  font-size: clamp(28px, 4.5vw, 58px);
+  font-family: var(--font-display);
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: #fff;
+  letter-spacing: 0.03em;
+  color: #ff7a1a;
   text-shadow:
-    0 2px 20px rgba(0,0,0,0.6),
-    0 0  40px rgba(0,0,0,0.3);
+    0 0 4px rgba(255, 122, 26, 0.9),
+    0 0 10px rgba(255, 106, 0, 0.7),
+    0 0 18px rgba(255, 90, 0, 0.45);
+  text-transform: uppercase;
+  line-height: 1.3;
 }
 
-/* ── Flechas de navegación ───────────────────── */
+.banner-label-proceso {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 200, 160, 0.85);
+  text-transform: uppercase;
+}
+
+/* ── Flechas de navegación ────────────────────── */
 .banner-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 4;
-  width: 44px;
-  height: 44px;
-  border: none;
-  cursor: pointer;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
   background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
   -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .banner-arrow:hover {
-  background: rgba(255,122,26,0.3);
+  background: rgba(255,122,26,0.25);
+  border-color: rgba(255,122,26,0.5);
   transform: translateY(-50%) scale(1.08);
 }
-.banner-arrow:active { transform: translateY(-50%) scale(0.96); }
-
-.banner-arrow-prev { left: 16px; }
-.banner-arrow-next { right: 16px; }
-
-/* Ícono chevron SVG inline */
 .banner-arrow svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   stroke: #fff;
   stroke-width: 2.5;
-  fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+  fill: none;
 }
+.banner-arrow-prev { left: 12px; }
+.banner-arrow-next { right: 12px; }
 
-/* ── Dots ────────────────────────────────────── */
+/* ── Dots ─────────────────────────────────────── */
 .banner-dots {
   position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
+  bottom: 14px;
+  right: 16px;
+  z-index: 3;
   display: flex;
+  gap: 6px;
   align-items: center;
-  gap: 8px;
 }
 .banner-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transition: background 0.3s, width 0.35s cubic-bezier(0.4,0,0.2,1);
+  background: rgba(255,255,255,0.35);
+  transition: background 0.3s, width 0.3s;
   cursor: pointer;
   border: none;
   padding: 0;
@@ -182,52 +154,50 @@
 }
 .banner-dot.active {
   background: #ff7a1a;
-  box-shadow: 0 0 8px rgba(255,122,26,0.7);
-  width: 22px;
+  width: 18px;
   border-radius: 3px;
 }
 
-/* ── Barra de progreso ───────────────────────── */
-.banner-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(to right, #ff7a1a, #ffaa60);
-  width: 0%;
-  z-index: 5;
-  transition: width linear;
-  box-shadow: 0 0 8px rgba(255,122,26,0.5);
-}
+
 
 /* ── Tablet 640px+ ───────────────────────────── */
 @media (min-width: 640px) {
-  .img-banner { height: calc(100svh - 64px); }
-  .banner-arrow { width: 52px; height: 52px; }
-  .banner-arrow-prev { left: 24px; }
-  .banner-arrow-next { right: 24px; }
-  .banner-label { bottom: 80px; padding: 0 48px; }
-  .banner-label-proceso { font-size: 11px; margin-bottom: 12px; }
-  .banner-dots { bottom: 32px; gap: 10px; }
-  .banner-dot { width: 7px; height: 7px; }
-  .banner-dot.active { width: 26px; }
+  .img-banner {
+    height: 50vw;
+    max-height: 680px;
+  }
+  .banner-label { bottom: 18px; left: 18px; padding: 10px 18px; }
+  .banner-label-pieza { font-size: 15px; }
+  .banner-label-proceso { font-size: 11.5px; }
+  .banner-arrow { width: 44px; height: 44px; }
+  .banner-arrow svg { width: 18px; height: 18px; }
+  .banner-arrow-prev { left: 20px; }
+  .banner-arrow-next { right: 20px; }
+  .banner-dots { bottom: 22px; right: 24px; }
+  .banner-dot { width: 6px; height: 6px; }
+  .banner-dot.active { width: 22px; }
 }
 
 /* ── Desktop 1024px+ ─────────────────────────── */
 @media (min-width: 1024px) {
-  .img-banner { height: calc(100svh - 68px); }
-  .banner-arrow { width: 56px; height: 56px; }
-  .banner-arrow-prev { left: 36px; }
-  .banner-arrow-next { right: 36px; }
-  .banner-label { bottom: 96px; padding: 0 64px; }
-  .banner-label-proceso { font-size: 12px; letter-spacing: 0.2em; }
-  .banner-dots { bottom: 40px; }
-  .banner-dot { width: 8px; height: 8px; }
-  .banner-dot.active { width: 30px; }
+  .img-banner {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 500px;
+  }
+  .banner-label { bottom: 28px; left: 28px; padding: 12px 22px; border-radius: 8px; }
+  .banner-label-pieza { font-size: 18px; }
+  .banner-label-proceso { font-size: 12.5px; }
+  .banner-arrow { width: 52px; height: 52px; }
+  .banner-arrow svg { width: 20px; height: 20px; }
+  .banner-arrow-prev { left: 28px; }
+  .banner-arrow-next { right: 28px; }
+  .banner-dots { bottom: 32px; right: 36px; }
+  .banner-dot { width: 7px; height: 7px; }
+  .banner-dot.active { width: 26px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .banner-slide { transition: none; }
-  .banner-label { transition: none; transform: none; opacity: 1; }
-  .banner-progress { transition: none; }
+  .banner-slide { transition: opacity 0.2s; }
+  .banner-progress-bar { transition: none; }
 }

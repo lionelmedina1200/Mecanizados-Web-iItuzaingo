@@ -1,4 +1,4 @@
-// banner.js — Carrusel fullscreen con flechas, dots y barra de progreso
+// banner.js — Carrusel con autoplay 3.5s + navegación manual + swipe
 
 (function () {
   'use strict';
@@ -6,19 +6,19 @@
   const banner = document.getElementById('imgBanner');
   if (!banner) return;
 
-  const slides   = Array.from(banner.querySelectorAll('.banner-slide'));
-  const dots     = Array.from(banner.querySelectorAll('.banner-dot'));
-  const progress = banner.querySelector('.banner-progress');
-  const INTERVAL = 3500;  // 3.5 segundos
-
+  const slides  = Array.from(banner.querySelectorAll('.banner-slide'));
+  const dots    = Array.from(banner.querySelectorAll('.banner-dot'));
+  const btnPrev = banner.querySelector('.banner-arrow-prev');
+  const btnNext = banner.querySelector('.banner-arrow-next');
   if (slides.length < 2) return;
 
-  let current   = 0;
-  let timer     = null;
+  const INTERVAL = 3500;
+  let current  = 0;
+  let timer    = null;
   let progTimer = null;
 
-  // ── Ir a un slide ──────────────────────────────
-  function goTo(index) {
+  // ── Ir a una slide ────────────────────────────
+  function goTo(index, direction) {
     slides[current].classList.remove('active');
     if (dots[current]) dots[current].classList.remove('active');
 
@@ -27,79 +27,92 @@
     slides[current].classList.add('active');
     if (dots[current]) dots[current].classList.add('active');
 
-    resetProgress();
+
   }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  // ── Barra de progreso ──────────────────────────
-  function resetProgress() {
-    if (!progress) return;
-    clearTimeout(progTimer);
-    progress.style.transition = 'none';
-    progress.style.width = '0%';
-    // Forzar reflow
-    void progress.offsetWidth;
-    progress.style.transition = `width ${INTERVAL}ms linear`;
-    progress.style.width = '100%';
-  }
-
-  // ── Auto play ──────────────────────────────────
+  // ── Autoplay ──────────────────────────────────
   function startAuto() {
     stopAuto();
-    timer = setInterval(next, INTERVAL);
-    resetProgress();
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
   }
   function stopAuto() {
     clearInterval(timer);
-    if (progress) {
-      progress.style.transition = 'none';
-      progress.style.width = progress.style.width; // congela donde está
-    }
   }
 
-  // ── Flechas ────────────────────────────────────
-  const prevBtn = banner.querySelector('.banner-arrow-prev');
-  const nextBtn = banner.querySelector('.banner-arrow-next');
+  // ── Flechas ───────────────────────────────────
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      goTo(current - 1);
+      startAuto();
+    });
+  }
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      goTo(current + 1);
+      startAuto();
+    });
+  }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
-
-  // ── Dots ───────────────────────────────────────
+  // ── Dots ──────────────────────────────────────
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); startAuto(); });
+    dot.addEventListener('click', () => {
+      goTo(i);
+      startAuto();
+    });
   });
 
-  // ── Touch / swipe ──────────────────────────────
+  // ── Swipe touch (mobile) ──────────────────────
   let touchStartX = 0;
+  let touchStartY = 0;
+
   banner.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-  banner.addEventListener('touchend', (e) => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      diff > 0 ? goTo(current + 1) : goTo(current - 1);
-      startAuto();
-    }
+    touchStartY = e.changedTouches[0].clientY;
   }, { passive: true });
 
-  // ── Pausa si pestaña oculta ───────────────────
-  document.addEventListener('visibilitychange', () => {
-    document.hidden ? stopAuto() : startAuto();
+  banner.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    // Solo swipe horizontal (ignora scroll vertical)
+    if (Math.abs(dx) < 40 || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0) goTo(current + 1);
+    else        goTo(current - 1);
+    startAuto();
+  }, { passive: true });
+
+  // ── Drag mouse (desktop) ──────────────────────
+  let mouseStartX = 0;
+  let isDragging  = false;
+
+  banner.addEventListener('mousedown', (e) => {
+    mouseStartX = e.clientX;
+    isDragging  = true;
+    stopAuto();
+  });
+  window.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const dx = e.clientX - mouseStartX;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) goTo(current + 1);
+      else        goTo(current - 1);
+    }
+    startAuto();
   });
 
-  // ── Pausa al hover (solo desktop) ─────────────
-  banner.addEventListener('mouseenter', stopAuto);
-  banner.addEventListener('mouseleave', startAuto);
-
-  // ── Teclado ────────────────────────────────────
+  // ── Teclado ───────────────────────────────────
   document.addEventListener('keydown', (e) => {
+    if (!banner.getBoundingClientRect().bottom > 0) return;
     if (e.key === 'ArrowLeft')  { goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { goTo(current + 1); startAuto(); }
   });
 
-  // ── Inicio ─────────────────────────────────────
-  startAuto();
+  // ── Pausa con visibilidad ─────────────────────
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
 
+  // ── Arrancar ──────────────────────────────────
+  startAuto();
 })();
